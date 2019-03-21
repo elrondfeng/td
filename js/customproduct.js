@@ -22,11 +22,53 @@ class CustomProduct{
 
 export default CustomProduct;*/
 
-jQuery( document ).ready(function($) {
+jQuery(document).ready(function($){
+// code goes here when document is ready. use $ for jQuery
 
-    $("#startCustomizeButton").click(function(){
-        alert("started");
+    jQuery( "#tabs" ).tabs();
+    // start
+    $("#startCustomizeButton").click(function () {
+        $("#tabs").tabs({active: 1});
+    });
+    //roof
+    $("#roof-prev").click(function () {
+        $("#tabs").tabs({active: 0});
+    });
+    $("#roof-next").click(function () {
+        $("#tabs").tabs({active: 2});
     });
 
+    //size
+    $("#size-prev").click(function () {
+        $("#tabs").tabs({active: 1});
+    });
+    $("#size-next").click(function () {
+        $("#tabs").tabs({active: 3});
+    });
+
+
+    //walls
+    $("#walls-prev").click(function () {
+        $("#tabs").tabs({active: 2});
+    });
+    $("#walls-next").click(function () {
+        $("#tabs").tabs({active: 4});
+    });
+
+    //doors
+    $("#doors-prev").click(function () {
+        $("#tabs").tabs({active: 3});
+    });
+    $("#doors-next").click(function () {
+        $("#tabs").tabs({active: 5});
+    });
+
+    //options
+    $("#options-prev").click(function () {
+        $("#tabs").tabs({active: 4});
+    });
+    $("#options-next").click(function () {
+        $("#tabs").tabs({active: 6});
+    });
 });
 
