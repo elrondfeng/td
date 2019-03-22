@@ -17,13 +17,6 @@ get_header(); ?>
 
 <section id="custom-product">
 
-    <!--    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>-->
-
-    <?php $price = 0 ?>
-
-
     <div class="row">
         <div class="small-24 medium-12 large-12 columns">
 
@@ -93,46 +86,25 @@ get_header(); ?>
 
         <div class="small-24 medium-12 large-12 columns ">
             <div class="white_container">
-                <ul class="nobullets">
 
-                    <li> <?php echo $price ?> </li>
+                <div class="product-parts">
+                    <div>
+                        WIDTH
+                    </div>
+                    <div id="width"></div>
+                    <div>
+                        LENGTH
+                    </div>
+                    <div id="length"></div>
+                </div>
 
-                    <li><a title="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>"
-                           class="text-left offcanvas-logo " href="<?php echo esc_url(home_url('/')); ?>"><img
-                                    src="https://www.tdmetalbuildings.com/wp-content/uploads/2018/07/TDBuildings-Logo-ForLightBackgrounds-Transparent_v1.png"
-                                    alt="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>"
-                                    title="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>"/></a><br><br></li>
+                <div class="product-graph clearfix">
+                    <img src="https://www.tdmetalbuildings.com/wp-content/uploads/2018/07/TDBuildings-Logo-ForLightBackgrounds-Transparent_v1.png"">
+                </div>
 
-                    <li><h2><?php bloginfo('name'); ?></h2></li>
-
-                    <?php if (get_field("phone", "options")): ?>
-                        <li class="location">
-                            <?php echo do_shortcode("[address]"); ?>
-                        </li>
-                        <li class="phone">
-                            <strong>Phone:</strong> <a class="phone" title="Call Tao FENG Us Today!"
-                                                       href="tel:<?php echo textivia_cleanphonenumber(get_field("phone", "options")); ?>"><?php the_field("phone", "options"); ?></a>
-                        </li>
-                    <?php endif; ?>
-                    <?php if (get_field("fax", "options")): ?>
-                        <li class="fax">
-                            <strong>Fax:</strong> <a class="fax" title="Fax Us Today!"
-                                                     href="tel:<?php echo textivia_cleanphonenumber(get_field("fax", "options")); ?>"><?php the_field("fax", "options"); ?></a>
-                        </li>
-                    <?php endif; ?>
-                </ul>
-
-                <?php if (have_rows('social_media_networks', 'options')): ?>
-                    <ul class="inline  ">
-                        <?php while (have_rows('social_media_networks', 'options')) : the_row(); ?>
-                            <li class="social">
-                                <a target="_blank" title="Visit us on <?php the_sub_field('url'); ?>"
-                                   href="<?php the_sub_field('url'); ?>" class="social-icon"><span
-                                            class="hidden"><?php the_sub_field('url'); ?></span></a>
-                            </li>
-                        <?php endwhile; ?>
-                    </ul>
-                <?php endif; ?>
+                <div class="price">
+                    <p> this is price session</p>
+                </div>
 
             </div>
         </div>

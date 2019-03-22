@@ -104,3 +104,28 @@ div.buttons-container
 }
 
 /*===============================================================*/
+.product-graph{
+    height:180px;
+    margin-top:50px;
+    margin-bottom:50px;
+}
+
+.white_container>div{
+    border: 1px solid blue;
+    padding:10px;
+    margin:10px;
+    
+}
+.product-parts>div{
+    float:left;
+
+    font-weight:bold;
+    font-size:2em;
+    font-color:#17293d;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}

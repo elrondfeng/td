@@ -70,5 +70,29 @@ jQuery(document).ready(function($){
     $("#options-next").click(function () {
         $("#tabs").tabs({active: 6});
     });
+
+    // object
+    var custom_product = {
+        zip : "00000",
+        price : 0,
+        width : 12,
+        length : 21,
+        height : 5,
+        garage_door : 0,
+        walk_in_door : 0,
+        window : 0,
+        price : {
+          all_price:995.00,
+          init_deposit:119.40
+        }
+    };
+
+    function initProductValues(){
+        $('#width').html(custom_product.width);
+        $('#length').html(custom_product.length);
+    }
+
+    initProductValues();
+
 });
 

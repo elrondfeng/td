@@ -4,7 +4,6 @@
  * Enqueue child-theme style sheet
  */
 
-
 function enqueue_parent_styles() {
     wp_enqueue_style( 'parent-style', get_template_directory_uri().'/style.css' );
 }
@@ -22,7 +21,6 @@ function wpstarter_child_style() {
 /*    wp_enqueue_script('jquery-ui-core');*/
     wp_enqueue_script('jquery-ui-tabs');
     wp_enqueue_style('jquery-ui-css-feng', 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css', array('parent-styles'),null,false );
-
 
     // original enqueue css stylesheet
     wp_dequeue_style( 'textivia-hephaestus');
@@ -52,7 +50,6 @@ function createProductID($text) {
 	$cleanID = preg_replace('/\s+/', '_', $text);	
 	return strtolower($cleanID);
 }
-
 
 function post_image_sizes($sizes){
     $custom_sizes = array(
