@@ -74,7 +74,6 @@ jQuery(document).ready(function($){
     // object
     var custom_product = {
         zip : "00000",
-        price : 0,
         width : 12,
         length : 21,
         height : 5,
@@ -90,6 +89,9 @@ jQuery(document).ready(function($){
     function initProductValues(){
         $('#width').html(custom_product.width);
         $('#length').html(custom_product.length);
+        $('#height').html(custom_product.height);
+        $('#total-price').html(custom_product.price.all_price);
+        $('#today-deposit').html(custom_product.price.init_deposit);
     }
 
     initProductValues();

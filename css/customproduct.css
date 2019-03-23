@@ -11,6 +11,48 @@
 
 /*===============================================================*/
 
+.order-now-button {
+    -moz-box-shadow:inset 0px 1px 0px 0px #caefab;
+    -webkit-box-shadow:inset 0px 1px 0px 0px #caefab;
+    box-shadow:inset 0px 1px 0px 0px #caefab;
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #12c083), color-stop(1, #098c60));
+    background:-moz-linear-gradient(top, #12c083 5%, #098c60 100%);
+    background:-webkit-linear-gradient(top, #12c083 5%, #098c60 100%);
+    background:-o-linear-gradient(top, #12c083 5%, #098c60 100%);
+    background:-ms-linear-gradient(top, #12c083 5%, #098c60 100%);
+    background:linear-gradient(to bottom, #12c083 5%, #098c60 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#12c083', endColorstr='#098c60',GradientType=0);
+    background-color:#12c083;
+    -moz-border-radius:6px;
+    -webkit-border-radius:6px;
+    border-radius:15px;
+    border:1px solid #268a16;
+    display:inline-block;
+    cursor:pointer;
+    color:#04290e;
+    font-family:Arial;
+    font-weight:bold;
+    padding:8px 16px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #aade7c;
+}
+.order-now-button:hover {
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #098c60), color-stop(1, #12c083));
+    background:-moz-linear-gradient(top, #098c60 5%, #12c083 100%);
+    background:-webkit-linear-gradient(top, #098c60 5%, #12c083 100%);
+    background:-o-linear-gradient(top, #098c60 5%, #12c083 100%);
+    background:-ms-linear-gradient(top, #098c60 5%, #12c083 100%);
+    background:linear-gradient(to bottom, #098c60 5%, #12c083 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#098c60', endColorstr='#12c083',GradientType=0);
+    background-color:#098c60;
+}
+.order-now-button:active {
+    position:relative;
+    top:1px;
+}
+
+/*===============================================================*/
+
 .start-button {
     -moz-box-shadow:inset 0px 1px 0px 0px #caefab;
     -webkit-box-shadow:inset 0px 1px 0px 0px #caefab;
@@ -104,28 +146,37 @@ div.buttons-container
 }
 
 /*===============================================================*/
-.product-graph{
-    height:180px;
-    margin-top:50px;
-    margin-bottom:50px;
-}
 
 .white_container>div{
-    border: 1px solid blue;
+    border:1px solid #12c083;
     padding:10px;
-    margin:10px;
-    
-}
-.product-parts>div{
-    float:left;
-
-    font-weight:bold;
-    font-size:2em;
-    font-color:#17293d;
+    margin:2px;
 }
 
-.clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
+.parts-item{
+    font-size:1.4em;
+    font-weight: bold;
+    color: #2a4477;
+    text-align: center;
+}
+
+.order-parts{
+    border-left : 4px solid #12c083;
+}
+
+.window-door-item{
+    font-size:1.1em;
+    font-weight: bold;
+    color: #2a4477;
+    text-align: center;
+}
+
+.price-item{
+    font-size:1.4em;
+    font-weight: bold;
+    color: #2a4477;
+}
+
+#custom-product{
+    padding-top: 20px;
 }
