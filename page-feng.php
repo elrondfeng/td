@@ -12,7 +12,7 @@
 get_header(); ?>
 
 
-<?php /*get_template_part('/content-parts/content', 'maincontent'); */?>
+<?php /*get_template_part('/content-parts/content', 'maincontent'); */ ?>
 
 
 <section id="custom-product">
@@ -39,6 +39,22 @@ get_header(); ?>
                         <div class="buttons-container">
                             <input id="startCustomizeButton" class="start-button" type="submit" value="START"
                                    style="font-size: 2em">
+                        </div>
+                        <div class="zip-container">
+                            <div class="row">
+                                <div class="small-16 medium-8 large-8 columns">
+                                     <div class=""> ZIP CODE : </div>
+                                </div>
+
+                                <div class="small-16 medium-8 large-8 columns">
+                                     <div id="client-zipcode" class=""> </div>
+                                 </div>
+
+                                <div class="small-16 medium-8 large-8 columns">
+                                    <input type="button" value="CHANGE">
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -214,4 +230,24 @@ get_header(); ?>
 
 <?php get_template_part('/content-parts/content', 'flexible-content'); ?>
 
+<div id="dialog-zipcode" title="tdbuildings">
+    <h2 class="popup-centered">Enter Your Zip Code To Get Instant Pricing </h2>
+    <form>
+        <fieldset>
+            <input type="text" id="zip" name="zip"  value="" placeholder="Enter Zip Code"
+                   class="" style="display:block"/>
+            <h5 class="popup-centered"> After submit your zip code, if the popup page reloads and doesn't close, then online
+                pricing may not be available in your area. please call <strong>888-888-8888</strong> for local pricing.</h5>
+        </fieldset>
+    </form>
+</div>
+
 <?php get_footer(); ?>
+
+<!--todo
+get the picture :
+https://carport.com/renderCARPORT2.php?
+rt=reg&fs=122105&st=open&so=hor&tc=tan&csw=clay&
+ft=open&bt=open&eo=hor&cew=clay&cr=clay&cfw=clay&cfd=white&cw=white&
+cwi=white&gd=0&wd=0&wi=0
+-->

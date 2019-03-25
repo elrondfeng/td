@@ -1,4 +1,6 @@
 <?php
+require "zipcode.php" ;
+
 
 /**
  * Enqueue child-theme style sheet
@@ -7,6 +9,7 @@
 function enqueue_parent_styles() {
     wp_enqueue_style( 'parent-style', get_template_directory_uri().'/style.css' );
 }
+
 add_action( 'wp_enqueue_scripts', 'enqueue_parent_styles' );
 
 function wpstarter_child_style() {
@@ -20,6 +23,7 @@ function wpstarter_child_style() {
     # jquery UI
 /*    wp_enqueue_script('jquery-ui-core');*/
     wp_enqueue_script('jquery-ui-tabs');
+    wp_enqueue_script('jquery-ui-dialog');
     wp_enqueue_style('jquery-ui-css-feng', 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css', array('parent-styles'),null,false );
 
     // original enqueue css stylesheet
@@ -81,3 +85,34 @@ function products_breadcrumb_trail( $links ) {
 
     return $links;
 }
+
+add_action('wp_head', 'ajaxplugin_ajaxurl');
+
+function ajaxplugin_ajaxurl() {
+    echo '<script type="text/javascript">
+           var ajaxurl = "' . admin_url('admin-ajax.php') . '";
+         </script>';
+}
+
+
+
+add_action('wp_ajax_nopriv_checkzip', 'check_zip_function');
+add_action('wp_ajax_checkzip', 'check_zip_function');
+
+function check_zip_function(){
+    header('Content-type: application/json');
+    $zip_input = $_GET['zipcode'];
+
+    $result = array();
+
+    $my_zip = new ZipCounty();
+
+    $result['zip'] = $zip_input;
+    $result['valid'] = $my_zip->isValid($zip_input);
+    $result['tax'] = 0.08;
+
+    $json = json_encode($result);
+    echo $json;
+    wp_die();
+}
+

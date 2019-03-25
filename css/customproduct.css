@@ -180,3 +180,72 @@ div.buttons-container
 #custom-product{
     padding-top: 20px;
 }
+
+.ui-dialog .ui-dialog-titlebar {
+    padding: 0.5em 9.2em 0.3em;
+    font-size: 18px;
+    font-family: open sans;
+    position: relative;
+    display: none;
+}
+
+.ui-dialog .ui-dialog-content {
+    position: relative;
+    border: 0;
+    padding: .5em 1em;
+    background: none;
+    overflow: auto;
+    color: #000;
+    zoom: 1;
+}
+
+.ui-dialog .ui-state-error {
+    padding: .3em;
+}
+
+#dialog-zipcode{
+    display: block;
+    z-index: 1002;
+    background-color: white;
+    width:700px;
+}
+
+.ui-dialog{
+    position: fixed;
+
+    left: 0 !important;
+    right: 0 !important;
+
+    padding: 15px;
+    border: 1px solid #d3dbe2;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+    max-width: 700px;
+    top: 200px !important;
+
+    margin: 0 auto;
+    width: calc(100% - 20px) !important;
+}
+
+#dialog-zipcode #zip{
+    dispaly:block;
+    margin-top:30px;
+    margin-left:auto;
+    margin-right:auto;
+    width: 80%;
+    border: 3px solid #12c083;
+    padding: 15px;
+    font-size: 2em;
+}
+
+.popup-centered{
+    text-align: center;
+    padding:5px 20px;
+    margin-bottom:20px;
+}
+
+.submitZipcode-button-class .ui-button-text{
+    font-weight: bold;
+    font-size:1.3em;
+}
+

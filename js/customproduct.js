@@ -96,5 +96,44 @@ jQuery(document).ready(function($){
 
     initProductValues();
 
+    function submitZipcode(){
+        console.log(ajaxurl);
+        jQuery.ajax({
+            type: "get",
+            dataType: "json",
+            url: ajaxurl,
+            data:{
+                'action': 'checkzip',
+                'zipcode' : $('#zip').val()
+            },
+            success: function(result){
+                console.log(JSON.stringify(result));
+
+                // 1. if valid, close the dialog. display it on teh start page
+                // 2. if not valid, do nothing
+                if(result.valid) {
+                    $("#dialog-zipcode").dialog('close');
+                    $("#client-zipcode").html(result.zip);
+                } else {
+                    ;
+                }
+            }
+        });
+    }
+
+    $( "#dialog-zipcode" ).dialog({
+        modal: true,
+        draggable: true,
+        resizable: false,
+        closeOnEscape : false,
+        buttons : [{
+            text  : 'SUBMIT',
+            click : submitZipcode,
+            class : 'submitZipcode-button-class'
+        }]
+    });
+
+
+
 });
 
