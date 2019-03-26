@@ -237,7 +237,7 @@ get_header(); ?>
             <input type="text" id="zip" name="zip"  value="" placeholder="Enter Zip Code"
                    class="" style="display:block"/>
             <h5 class="popup-centered"> After submit your zip code, if the popup page reloads and doesn't close, then online
-                pricing may not be available in your area. please call <strong>888-888-8888</strong> for local pricing.</h5>
+                pricing may not be available in your area. please call <strong>919-452-7500</strong> for local pricing.</h5>
         </fieldset>
     </form>
 </div>

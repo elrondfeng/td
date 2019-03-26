@@ -1,5 +1,6 @@
 <?php
 require "zipcode.php" ;
+require "taxrate.php" ;
 
 
 /**
@@ -104,15 +105,20 @@ function check_zip_function(){
     $zip_input = $_GET['zipcode'];
 
     $result = array();
-
     $my_zip = new ZipCounty();
+    $my_tax = new TaxRate();
+
+    $my_county = $my_zip->getCounty($zip_input);
 
     $result['zip'] = $zip_input;
+    $result['county'] = $my_county;
     $result['valid'] = $my_zip->isValid($zip_input);
-    $result['tax'] = 0.08;
+    $result['tax'] = $my_tax ->getRate($my_county);
 
     $json = json_encode($result);
+
     echo $json;
+
     wp_die();
 }
 
