@@ -43,7 +43,7 @@ get_header(); ?>
                         <div class="zip-container">
                             <div class="row">
                                 <div class="small-16 medium-8 large-8 columns">
-                                     <div class=""> ZIP CODE : </div>
+                                     <div id="client-county"></div>
                                 </div>
 
                                 <div class="small-16 medium-8 large-8 columns">
@@ -51,7 +51,7 @@ get_header(); ?>
                                  </div>
 
                                 <div class="small-16 medium-8 large-8 columns">
-                                    <input type="button" value="CHANGE">
+                                    <input type="button" class="change-zip-button" value="CHANGE">
                                 </div>
                             </div>
 

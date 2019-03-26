@@ -1,30 +1,5 @@
-/*
-import $ from 'jquery';
-
-class CustomProduct{
-    //1. describe and create/initiate the object
-    constructor(){
-        this.startCustomizeButton = $("#startCustomizeButton");
-    }
-
-    //2. events
-
-    events(){
-        this.startCustomizeButton.on("click", this.startCustomizing.bind(this));
-    }
-
-    //2. methods ( function, action ... )
-
-    startCustomizing(){
-        alert("started");
-    }
-}
-
-export default CustomProduct;*/
-
 jQuery(document).ready(function($){
 // code goes here when document is ready. use $ for jQuery
-
     jQuery( "#tabs" ).tabs();
     // start
     $("#startCustomizeButton").click(function () {
@@ -73,7 +48,9 @@ jQuery(document).ready(function($){
 
     // object
     var custom_product = {
-        zip : "00000",
+        zip : 0,
+        tax :0,
+        county: '',
         width : 12,
         length : 21,
         height : 5,
@@ -86,6 +63,7 @@ jQuery(document).ready(function($){
         }
     };
 
+    // init product
     function initProductValues(){
         $('#width').html(custom_product.width);
         $('#length').html(custom_product.length);
@@ -113,7 +91,11 @@ jQuery(document).ready(function($){
                 // 2. if not valid, do nothing
                 if(result.valid) {
                     $("#dialog-zipcode").dialog('close');
+                    $("#client-county").html(result.county);
                     $("#client-zipcode").html(result.zip);
+                    custom_product.zip = result.zip;
+                    custom_product.county = result.county;
+                    custom_product.tax = result.tax;
                 } else {
                     ;
                 }
@@ -121,18 +103,25 @@ jQuery(document).ready(function($){
         });
     }
 
-    $( "#dialog-zipcode" ).dialog({
-        modal: true,
-        draggable: true,
-        resizable: false,
-        closeOnEscape : false,
-        buttons : [{
-            text  : 'SUBMIT',
-            click : submitZipcode,
-            class : 'submitZipcode-button-class'
-        }]
-    });
 
+
+    function openDialog(){
+        $( "#dialog-zipcode" ).dialog({
+            modal: true,
+            draggable: true,
+            resizable: false,
+            closeOnEscape : false,
+            buttons : [{
+                text  : 'SUBMIT',
+                click : submitZipcode,
+                class : 'submitZipcode-button-class'
+            }]
+        });
+    }
+
+    openDialog();
+
+    $(".change-zip-button").click(openDialog);
 
 
 });
