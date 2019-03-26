@@ -59,7 +59,34 @@ get_header(); ?>
                     </div>
                 </div>
                 <div id="tabs-2" class="ui-tabs-panel ui-tabs-hide">
-                    <p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, \.</p>
+
+                    <h3> ROOF STYLE DESIGNS </h3>
+                    <h5>
+                    Choose a metal roofing style and customize your colors, then click next.
+                    Regular is good, A-Frame is better, and Vertical is best. </h5>
+
+                    <h4 class="new-section"> ROOF STYLE: </h4>
+                    <div class="row">
+
+                        <div class="small-16 medium-8 large-8 columns">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/imgs/Regular.png">
+                        </div>
+
+                        <div class="small-16 medium-8 large-8 columns">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/imgs/Boxed-Eve.png">
+                        </div>
+
+                        <div class="small-16 medium-8 large-8 columns">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/imgs/Vertical.png">
+                        </div>
+                    </div>
+
+                    <h4 class="new-section"> ROOF COLOR: </h4>
+                    <?php get_template_part('/content-parts/content', 'colorpicker');  ?>
+
+                    <h4 class="new-section"> TRIM COLOR: </h4>
+                    <?php get_template_part('/content-parts/content', 'colorpicker');  ?>
+
                     <div class="buttons-container">
                         <input type="button" id="roof-prev" class="pre-next-button" href="#" value="PREV"
                                style="font-size: 1.2em">
