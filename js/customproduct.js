@@ -50,10 +50,13 @@ jQuery(document).ready(function($){
     var custom_product = {
         zip : 0,
         tax :0,
-        county: '',
+        county : '',
         width : 12,
         length : 21,
         height : 5,
+        roof_style : '',
+        roof_color : '',
+        trim_color : '',
         garage_door : 0,
         walk_in_door : 0,
         window : 0,
@@ -103,8 +106,6 @@ jQuery(document).ready(function($){
         });
     }
 
-
-
     function openDialog(){
         $( "#dialog-zipcode" ).dialog({
             modal: true,
@@ -123,6 +124,23 @@ jQuery(document).ready(function($){
 
     $(".change-zip-button").click(openDialog);
 
+    $('.row.pics.stylename .block').click(function(){
+        $('.row.pics.stylename .block p6').removeClass('selected');
+        $(this).find('p6').addClass('selected');
+        custom_product.roof_style = $(this).find('p6').val();
+    })
+
+    $('.roof-color .color.block').click(function(){
+        $('.roof-color .color.block').removeClass('selected');
+        $(this).addClass('selected');
+        custom_product.roof_color = $(this).find('.color.definition').val();
+    })
+
+    $('.trim-color .color.block').click(function(){
+        $('.trim-color .color.block').removeClass('selected');
+        $(this).addClass('selected');
+        custom_product.trim_color = $(this).find('.color.definition').val();
+    })
 
 });
 

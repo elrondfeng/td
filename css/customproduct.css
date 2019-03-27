@@ -98,6 +98,7 @@
 div.buttons-container
 {
     display:block;
+    margin-top:20px;
     margin-left:auto;
     margin-right:auto;
     width: 80%;
@@ -298,6 +299,102 @@ div.buttons-container
 .new-section{
     margin-top: 20px;
 }
+
+.row.stylename.pics {
+    text-align: center;
+}
+
+.row.stylename.pics:hover {
+    cursor:pointer;
+}
+
+.row.stylename.pics p6.selected{
+    font-weight: bold;
+}
+
+/*************************************/
+
+.color.block {
+    width: 60px;
+    height: 40px;
+    border: 1px solid #aaaaa6;
+    background: #eee;
+    display: flex;
+    border-radius: 2px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+}
+.color.block:hover {
+    cursor: pointer;
+    background: #fff;
+}
+.color.block:hover .definition {
+    color: #599fcf;
+}
+.color.block.selected {
+    background: #515151;
+}
+.color.block.selected .definition {
+    color: #fff;
+}
+.color.bar {
+    width: 45px;
+    height: 15px;
+}
+.blue.color.bar {
+    background: blue;
+}
+.clay.color.bar {
+    background: #835A36;
+}
+.pgray.color.bar {
+    background: #808080;
+}
+.white.color.bar {
+    background: #eaeae8;
+    border: 1px solid #aaaaa6;
+}
+.black .color.bar{
+    background: #232323;
+}
+.burgundy.color.bar {
+    background: #800020;
+}
+.qgray.color.bar {
+    background: #A9A9A9;
+}
+.sandstone.color.bar {
+    background: #78716C;
+}
+.white.color.bar {
+    background: white;
+}
+.tan.color.bar {
+    background: #ccac79;
+}
+.green.color.bar {
+    background: green;
+}
+.red.color.bar {
+    background: red;
+}
+.black.color.bar {
+    background: black;
+}
+.brown.color.bar {
+    background: brown;
+}
+.color.definition {
+    color: #3383bb;
+    font-size: 0.75em;
+    font-family: Lato;
+}
+
+/**********************************************/
+
+
 
 
 
