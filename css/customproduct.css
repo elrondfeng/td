@@ -393,6 +393,53 @@ div.buttons-container
 }
 
 /**********************************************/
+/************ SIZE ************************/
+
+.size-item {
+    padding : 20px 10px;
+    margin : 5px;
+}
+
+.ui-slider {
+    width:70%;
+    margin-top:20px;
+    background-color:#e6e6e6;
+}
+
+.ui-slider-handle.ui-state-default.ui-corner-all{
+    width: 1.5em;
+    height: 1.6em;
+    top: 50%;
+    margin-top: -.8em;
+    text-align: center;
+    line-height: 1.6em;
+    background-image:none;
+    background-color: #12c083;
+}
+
+.green-number{
+    color:#12c083;
+    font-size:1.4em;
+    font-weight:bold;
+}
+
+.green-number.dimension-value{
+    padding-left:5px;
+}
+
+.dimension-name{
+    font-weight:bold;
+}
+
+.ui-button .ui-button-text {
+    display: block;
+    line-height: 1.4;
+}
+
+.ui-button-text-only .ui-button-text {
+    padding: .4em .3em !important;
+    font-family: Montserrat;
+}
 
 
 

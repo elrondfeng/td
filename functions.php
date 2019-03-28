@@ -20,12 +20,14 @@ function wpstarter_child_style() {
 
     # custom product css
     wp_enqueue_style( 'custom-product-style', get_stylesheet_directory_uri() .'/css/customproduct.css' , array( 'parent-styles' ), '1.0');
+    # jquery ui external
+    wp_enqueue_script('jquery-ui', "https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js", array(), "1.12.1",false) ;
+    wp_enqueue_style('jquery-ui-css', 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css', array('parent-styles'),null,false );
 
-    # jquery UI
-/*    wp_enqueue_script('jquery-ui-core');*/
+    # jquery UI internal built-in with wordpress
     wp_enqueue_script('jquery-ui-tabs');
     wp_enqueue_script('jquery-ui-dialog');
-    wp_enqueue_style('jquery-ui-css-feng', 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css', array('parent-styles'),null,false );
+    wp_enqueue_script('jquery-ui-slider');
 
     // original enqueue css stylesheet
     wp_dequeue_style( 'textivia-hephaestus');

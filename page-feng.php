@@ -59,50 +59,43 @@ get_header(); ?>
                     </div>
                 </div>
                 <div id="tabs-2" class="ui-tabs-panel ui-tabs-hide">
-
-                    <h3> ROOF STYLE DESIGNS </h3>
-                    <h5>
-                    Choose a metal roofing style and customize your colors, then click next.
-                    Regular is good, A-Frame is better, and Vertical is best. </h5>
-
-                    <h4 class="new-section roof-style"> ROOF STYLE: </h4>
-                    <div class="row pics stylename">
-                        <div class="small-16 medium-8 large-8 columns block">
-                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/imgs/Regular.png">
-                            <p6>Luxury</p6>
-                        </div>
-
-                        <div class="small-16 medium-8 large-8 columns block">
-                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/imgs/Boxed-Eve.png">
-                            <p6>Luxury</p6>
-                        </div>
-
-                        <div class="small-16 medium-8 large-8 columns block">
-                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/imgs/Vertical.png">
-                            <p6>Platinum</p6>
-                        </div>
-                    </div>
-
-                    <h4 class="new-section"> ROOF COLOR: </h4>
-                    <div class="roof-color">
-                        <?php get_template_part('/content-parts/content', 'colorpicker');  ?>
-                    </div>
-                    <h4 class="new-section"> TRIM COLOR: </h4>
-                    <div class="trim-color">
-                        <?php get_template_part('/content-parts/content', 'colorpicker');  ?>
-                    </div>
-
-                    <div class="buttons-container">
-                        <input type="button" id="roof-prev" class="pre-next-button" href="#" value="PREV"
-                               style="font-size: 1.2em">
-                        <input type="button" id="roof-next" class="pre-next-button" href="#" value="NEXT"
-                               style="font-size: 1.2em">
-                    </div>
-
+                    <?php get_template_part('/content-parts/content', 'roof'); ?>
                 </div>
                 <div id="tabs-3" class="ui-tabs-panel ui-tabs-hide">
-                    <p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel
-                        vehicula accumsan, mi neque rutrum erats.</p>
+                    <h3> METAL BUILDING FRAME SIZE </h3>
+
+                    <div class="size-item ">
+                        <span class="dimension-name">FRAME WIDTH:</span><span class="green-number dimension-value" id="width-value">10</span>
+                        <div id="width-slider"></div>
+                    </div>
+
+                    <div class="size-item ">
+                        <span class="dimension-name">FRAME LENGTH:</span><span class="green-number dimension-value" id="length-value">10</span>
+                        <div id="length-slider"></div>
+                    </div>
+
+                    <div class="size-item ">
+                        <span class="dimension-name">FRAME HEIGHT:</span><span class="green-number dimension-value" id="height-value">6</span>
+                        <div id="height-slider"></div>
+                    </div>
+
+                    <div class="size-item">
+                        <div class="dimension-name" > FRAMING OPTIONS: </div>
+
+                        <fieldset>
+                            <label for="cb-certified">Certified</label>
+                            <input type="checkbox" name="cb-certified" id="cb-certified">
+                            <label for="cb-Gauge">12 Gauge </label>
+                            <input type="checkbox" name="cb-Gauge" id="cb-Gauge">
+                        </fieldset>
+
+                    </div>
+
+                    <h4>Building permits: if required, your building must be "certified." Remember, frame width is
+                        measured outside edge to outside edge, and length is generally 1' shorter than roof length.
+                        In select locations, engineering for vertical style roofs can result in a roof and frame
+                        that are flush, therefore these buildings are 1' shorter than stated roof length.</h4>
+
                     <div class="buttons-container">
                         <input type="button" id="size-prev" class="pre-next-button" href="#" value="PREV"
                                style="font-size: 1.2em">
@@ -171,15 +164,15 @@ get_header(); ?>
                             </div>
                             <div class="row">
                                 <div class="small-16 medium-8 large-8 columns">
-                                    <div id="width" class="parts-item"></div>
+                                    <div id="width" class="parts-item green-number"></div>
                                 </div>
 
                                 <div class="small-16 medium-8 large-8 columns">
-                                    <div id="length" class="parts-item"></div>
+                                    <div id="length" class="parts-item green-number"></div>
                                 </div>
 
                                 <div class="small-16 medium-8 large-8 columns">
-                                    <div id="height" class="parts-item"></div>
+                                    <div id="height" class="parts-item green-number"></div>
                                 </div>
                             </div>
 
@@ -214,15 +207,15 @@ get_header(); ?>
                     </div>
                     <div class="row">
                         <div class="small-16 medium-8 large-8 columns">
-                            <div id="width" class="window-door-item"> 0</div>
+                            <div id="width" class="window-door-item green-number"> 0</div>
                         </div>
 
                         <div class="small-16 medium-8 large-8 columns">
-                            <div id="length" class="window-door-item"> 0</div>
+                            <div id="length" class="window-door-item green-number"> 0</div>
                         </div>
 
                         <div class="small-16 medium-8 large-8 columns">
-                            <div id="height" class="window-door-item"> 0</div>
+                            <div id="height" class="window-door-item green-number"> 0</div>
                         </div>
                     </div>
 
