@@ -15,7 +15,7 @@ add_action( 'wp_enqueue_scripts', 'enqueue_parent_styles' );
 
 function wpstarter_child_style() {
 
-    // feng style and script
+    // style and script
     wp_enqueue_script( 'custom-product', get_stylesheet_directory_uri() . '/js/customproduct.js', array('jquery'), '1.0', false );
 
     # custom product css

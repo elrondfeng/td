@@ -178,7 +178,11 @@ jQuery(document).ready(function($){
         }
     });
 
-    $( "input[type='checkbox']").checkboxradio({
+    // this is for the two checkboxradio on the size page
+    $( "input[id='cb-certified'][type='checkbox']").checkboxradio({
+        icon: false
+    });
+    $( "input[id='cb-gauge'][type='checkbox']").checkboxradio({
         icon: false
     });
 
@@ -191,12 +195,40 @@ jQuery(document).ready(function($){
     })
 
     $("#gaugecheckbox").on('click', function(){
-        if($("#cb-Gauge").is(':checked')){
+        if($("#cb-gauge").is(':checked')){
             custom_product.gauge = "YES";
         } else {
             custom_product.gauge = "NO";
         }
     })
+
+    // this is for the checkboxradio on the wall page
+    $( "input[name='side-wall-style']:radio").checkboxradio({
+        icon:false
+    });
+    $( "fieldset#side-wall-style-fs").controlgroup();
+
+    $( "input[name='side-wall-orientation']:radio").checkboxradio({
+        icon:false
+    });
+    $( "fieldset#side-wall-orientation-fs").controlgroup();
+
+    //
+    $( "input[name='end-wall-style-front']:radio").checkboxradio({
+        icon:false
+    });
+    $( "fieldset#end-wall-style-front-fs").controlgroup();
+
+    $( "input[name='end-wall-style-back']:radio").checkboxradio({
+        icon:false
+    });
+    $( "fieldset#end-wall-style-back-fs").controlgroup();
+
+    $( "input[name='end-wall-orientation']:radio").checkboxradio({
+        icon:false
+    });
+    $( "fieldset#end-wall-orientation-fs").controlgroup();
+
 
 
 

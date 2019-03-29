@@ -2,76 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>jQuery UI Dialog - Default functionality</title>
+    <title>jQuery UI Checkboxradio - Radio Group</title>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="/resources/demos/style.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
         $( function() {
-            $( "#dialog" ).dialog();
+            $( "input" ).checkboxradio();
+            $( "fieldset" ).controlgroup();
         } );
     </script>
 </head>
 <body>
+<div class="widget">
 
-<div id="dialog" title="Basic dialog">
-    <p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
-</div>
-
-
-
-
-<div class="color holder">
-    <div class="color select selected" value="red_red">
-        <div class="red color bar"></div>
-        <div class="color name">Red</div>
-    </div>
-    <div class="color select" value="clay_cl">
-        <div class="clay color bar"></div>
-        <div class="color name">Clay</div>
-    </div>
-    <div class="color select" value="brown_bn">
-        <div class="brown color bar"></div>
-        <div class="color name">Brown</div>
-    </div>
-    <div class="color select" value="white_wh">
-        <div class="white color bar"></div>
-        <div class="color name">White</div>
-    </div>
-    <div class="color select" value="black_bk">
-        <div class="black color bar"></div>
-        <div class="color name">Black</div>
-    </div>
-    <div class="color select" value="blue_bl">
-        <div class="blue color bar"></div>
-        <div class="color name">Blue</div>
-    </div>
-    <div class="color select" value="burgundy_by">
-        <div class="burg color bar"></div>
-        <div class="color name">Burgundy</div>
-    </div>
-    <div class="color select" value="green_gn">
-        <div class="green color bar"></div>
-        <div class="color name">Green</div>
-    </div>
-    <div class="color select" value="beige_bg">
-        <div class="beige color bar"></div>
-        <div class="color name">Beige</div>
-    </div>
-    <div class="color select" value="tan_tn">
-        <div class="tan color bar"></div>
-        <div class="color name">Tan</div>
-    </div>
-    <div class="color select" value="darkgray_dg">
-        <div class="dkgray color bar"></div>
-        <div class="color name">Dkgray</div>
-    </div>
-    <div class="color select" value="gray_gy">
-        <div class="gray color bar"></div>
-        <div class="color name">Gray</div>
-    </div>
+    <h2>Radio Group</h2>
+    <fieldset>
+        <legend>Select a Location: </legend>
+        <label for="radio-1">New York</label>
+        <input type="radio" name="radio-1" id="radio-1">
+        <label for="radio-2">Paris</label>
+        <input type="radio" name="radio-1" id="radio-2">
+        <label for="radio-3">London</label>
+        <input type="radio" name="radio-1" id="radio-3">
+    </fieldset>
 </div>
 
 

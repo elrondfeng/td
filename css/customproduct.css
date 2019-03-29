@@ -395,7 +395,7 @@ div.buttons-container
 /**********************************************/
 /************ SIZE ************************/
 
-.size-item {
+.sub-item {
     padding : 20px 10px;
     margin : 5px;
 }
@@ -427,8 +427,9 @@ div.buttons-container
     padding-left:5px;
 }
 
-.dimension-name{
+.sub-item-name{
     font-weight:bold;
+    color:#164b99;
 }
 
 .ui-button .ui-button-text {
@@ -452,6 +453,26 @@ label#certifiedcheckbox.ui-checkboxradio-checked.ui-corner-all.ui-button.ui-widg
 label#gaugecheckbox.ui-checkboxradio-checked.ui-corner-all.ui-button.ui-widget{
     background:#12c083;
 }
+/**********************************************/
+/*************** WALLS ************************/
+fieldset#side-wall-style-fs,fieldset#side-wall-orientation-fs,
+fieldset#end-wall-style-front-fs, fieldset#end-wall-style-back-fs,
+fieldset#end-wall-orientation-fs{
+    border:none;
+}
+/* all radios on this page */
+fieldset label.ui-button.ui-widget.ui-checkboxradio-radio-label.ui-checkboxradio-label.ui-controlgroup-item.ui-checkboxradio-checked.ui-state-active{
+    background:#12c083;
+}
+
+.center-vertical{
+    padding: 15px 0;
+}
+
+
+
+
+
 
 
 

@@ -11,15 +11,11 @@
 
 get_header(); ?>
 
-
 <?php /*get_template_part('/content-parts/content', 'maincontent'); */ ?>
 
-
 <section id="custom-product">
-
     <div class="row">
         <div class="small-24 medium-12 large-12 columns">
-
             <div id="tabs">
                 <ul>
                     <li><a href="#tabs-1" class="custom-product-tabs">Start</a></li>
@@ -43,12 +39,12 @@ get_header(); ?>
                         <div class="zip-container">
                             <div class="row">
                                 <div class="small-16 medium-8 large-8 columns">
-                                     <div id="client-county"></div>
+                                    <div id="client-county"></div>
                                 </div>
 
                                 <div class="small-16 medium-8 large-8 columns">
-                                     <div id="client-zipcode" class=""> </div>
-                                 </div>
+                                    <div id="client-zipcode" class=""></div>
+                                </div>
 
                                 <div class="small-16 medium-8 large-8 columns">
                                     <input type="button" class="change-zip-button" value="CHANGE">
@@ -62,54 +58,10 @@ get_header(); ?>
                     <?php get_template_part('/content-parts/content', 'roof'); ?>
                 </div>
                 <div id="tabs-3" class="ui-tabs-panel ui-tabs-hide">
-                    <h3> METAL BUILDING FRAME SIZE </h3>
-
-                    <div class="size-item ">
-                        <span class="dimension-name">FRAME WIDTH:</span><span class="green-number dimension-value" id="width-value">10</span>
-                        <div id="width-slider"></div>
-                    </div>
-
-                    <div class="size-item ">
-                        <span class="dimension-name">FRAME LENGTH:</span><span class="green-number dimension-value" id="length-value">10</span>
-                        <div id="length-slider"></div>
-                    </div>
-
-                    <div class="size-item ">
-                        <span class="dimension-name">FRAME HEIGHT:</span><span class="green-number dimension-value" id="height-value">6</span>
-                        <div id="height-slider"></div>
-                    </div>
-
-                    <div class="size-item">
-                        <div class="dimension-name" > FRAMING OPTIONS: </div>
-                            <div class="checkboxradio-container">
-                                <label for="cb-certified" id="certifiedcheckbox">Certified</label>
-                                <input type="checkbox" name="cb-certified" id="cb-certified">
-                                <label for="cb-Gauge" id="gaugecheckbox">12 Gauge </label>
-                                <input type="checkbox" name="cb-Gauge" id="cb-Gauge">
-                            </div>
-                    </div>
-
-                    <h4>Building permits: if required, your building must be "certified." Remember, frame width is
-                        measured outside edge to outside edge, and length is generally 1' shorter than roof length.
-                        In select locations, engineering for vertical style roofs can result in a roof and frame
-                        that are flush, therefore these buildings are 1' shorter than stated roof length.</h4>
-
-                    <div class="buttons-container">
-                        <input type="button" id="size-prev" class="pre-next-button" href="#" value="PREV"
-                               style="font-size: 1.2em">
-                        <input type="button" id="size-next" class="pre-next-button" href="#" value="NEXT"
-                               style="font-size: 1.2em">
-                    </div>
+                    <?php get_template_part('/content-parts/content', 'size'); ?>
                 </div>
                 <div id="tabs-4" class="ui-tabs-panel ui-tabs-hide">
-                    <p>Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec
-                        sollicitudin mi sit amet mauris. Nam elementum quam ullamcorper ante. .</p>
-                    <div class="buttons-container">
-                        <input type="button" id="walls-prev" class="pre-next-button" href="#" value="PREV"
-                               style="font-size: 1.2em">
-                        <input type="button" id="walls-next" class="pre-next-button" href="#" value="NEXT"
-                               style="font-size: 1.2em">
-                    </div>
+                    <?php get_template_part('/content-parts/content', 'wall'); ?>
                 </div>
                 <div id="tabs-5" class="ui-tabs-panel ui-tabs-hide">
                     <p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus
@@ -257,10 +209,12 @@ get_header(); ?>
     <h2 class="popup-centered">Enter Your Zip Code To Get Instant Pricing </h2>
     <form>
         <fieldset>
-            <input type="text" id="zip" name="zip"  value="" placeholder="Enter Zip Code"
+            <input type="text" id="zip" name="zip" value="" placeholder="Enter Zip Code"
                    class="" style="display:block"/>
-            <h5 class="popup-centered"> After submit your zip code, if the popup page reloads and doesn't close, then online
-                pricing may not be available in your area. please call <strong>919-452-7500</strong> for local pricing.</h5>
+            <h5 class="popup-centered"> After submit your zip code, if the popup page reloads and doesn't close, then
+                online
+                pricing may not be available in your area. please call <strong>919-452-7500</strong> for local pricing.
+            </h5>
         </fieldset>
     </form>
 </div>

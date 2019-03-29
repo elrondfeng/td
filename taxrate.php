@@ -1,11 +1,5 @@
 <?php
 
-/**
- *CreatedbyPhpStorm.
- *User:taofeng
- *Date:3/25/2019
- *Time:8:23PM
- */
 class TaxRate {
     private $tax_rate = array(
         "Alamance" => 6.75,
