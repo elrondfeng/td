@@ -441,6 +441,18 @@ div.buttons-container
     font-family: Montserrat;
 }
 
+.checkboxradio-container{
+    margin-top:20px;
+}
+
+label#certifiedcheckbox.ui-checkboxradio-checked.ui-corner-all.ui-button.ui-widget{
+    background:#12c083;
+}
+
+label#gaugecheckbox.ui-checkboxradio-checked.ui-corner-all.ui-button.ui-widget{
+    background:#12c083;
+}
+
 
 
 

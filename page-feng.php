@@ -81,14 +81,12 @@ get_header(); ?>
 
                     <div class="size-item">
                         <div class="dimension-name" > FRAMING OPTIONS: </div>
-
-                        <fieldset>
-                            <label for="cb-certified">Certified</label>
-                            <input type="checkbox" name="cb-certified" id="cb-certified">
-                            <label for="cb-Gauge">12 Gauge </label>
-                            <input type="checkbox" name="cb-Gauge" id="cb-Gauge">
-                        </fieldset>
-
+                            <div class="checkboxradio-container">
+                                <label for="cb-certified" id="certifiedcheckbox">Certified</label>
+                                <input type="checkbox" name="cb-certified" id="cb-certified">
+                                <label for="cb-Gauge" id="gaugecheckbox">12 Gauge </label>
+                                <input type="checkbox" name="cb-Gauge" id="cb-Gauge">
+                            </div>
                     </div>
 
                     <h4>Building permits: if required, your building must be "certified." Remember, frame width is

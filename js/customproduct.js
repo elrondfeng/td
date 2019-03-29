@@ -63,7 +63,9 @@ jQuery(document).ready(function($){
         price : {
           all_price:995.00,
           init_deposit:119.40
-        }
+        },
+        certified : 'NO',
+        gauge : 'NO'
     };
 
     // init product
@@ -180,7 +182,21 @@ jQuery(document).ready(function($){
         icon: false
     });
 
+    $("#certifiedcheckbox").on('click', function(){
+        if($("#cb-certified").is(':checked')){
+            custom_product.certified = "NO";
+        } else {
+            custom_product.certified = "YES";
+        }
+    })
 
+    $("#gaugecheckbox").on('click', function(){
+        if($("#cb-Gauge").is(':checked')){
+            custom_product.gauge = "YES";
+        } else {
+            custom_product.gauge = "NO";
+        }
+    })
 
 
 
