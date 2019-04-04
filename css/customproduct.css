@@ -396,7 +396,7 @@ div.buttons-container
 /************ SIZE ************************/
 
 .sub-item {
-    padding : 20px 10px;
+    padding : 10px 10px;
     margin : 5px;
 }
 
@@ -430,6 +430,7 @@ div.buttons-container
 .sub-item-name{
     font-weight:bold;
     color:#164b99;
+    padding-bottom: 5px;
 }
 
 .ui-button .ui-button-text {
@@ -467,6 +468,11 @@ fieldset label.ui-button.ui-widget.ui-checkboxradio-radio-label.ui-checkboxradio
 
 .center-vertical{
     padding: 15px 0;
+}
+
+div#small-font-color{
+    padding-top:12px;
+    font-size:0.7em;
 }
 
 

@@ -51,12 +51,6 @@ jQuery(document).ready(function($){
         zip : 0,
         tax :0,
         county : '',
-        width : 10,
-        length : 10,
-        height : 6,
-        roof_style : '',
-        roof_color : '',
-        trim_color : '',
         garage_door : 0,
         walk_in_door : 0,
         window : 0,
@@ -64,8 +58,24 @@ jQuery(document).ready(function($){
           all_price:995.00,
           init_deposit:119.40
         },
+        //roof
+        roof_style : '',
+        roof_color : '',
+        trim_color : '',
+        // size
+        width : 10,
+        length : 10,
+        height : 6,
         certified : 'NO',
-        gauge : 'NO'
+        gauge : 'NO',
+        //wall
+        side_wall_style : 'NO WALL',
+        side_wall_orientation : 'HORIZONTAL',
+        side_wall_color : '',
+        end_wall_style_front : 'NO WALL',
+        end_wall_style_back : 'NO WALL',
+        end_wall_orientation : 'HORIZONTAL',
+        end_wall_color : ''
     };
 
     // init product
@@ -186,6 +196,7 @@ jQuery(document).ready(function($){
         icon: false
     });
 
+    // update certified and gauge checkbox value to custom_product object
     $("#certifiedcheckbox").on('click', function(){
         if($("#cb-certified").is(':checked')){
             custom_product.certified = "NO";
@@ -229,7 +240,51 @@ jQuery(document).ready(function($){
     });
     $( "fieldset#end-wall-orientation-fs").controlgroup();
 
+    // update radio choice of the wall tab to custom_product object
 
+    // 1. side wall style
+    $("div.widget fieldset#side-wall-style-fs > input[type='radio']").change(function(){
+        var side_wall_style = $("input[name='side-wall-style']:checked").val();
+        custom_product.side_wall_style = side_wall_style;
+    });
+
+    // 2. side wall orientation
+    $("div.widget fieldset#side-wall-orientation-fs > input[type='radio']").change(function(){
+        var side_wall_orientation = $("input[name='side-wall-orientation']:checked").val();
+        custom_product.side_wall_orientation = side_wall_orientation;
+    });
+
+    // 3. side wall color
+    $('.side-wall-color .color.block').click(function(){
+        $('.side-wall-color .color.block').removeClass('selected');
+        $(this).addClass('selected');
+        custom_product.side_wall_color = $(this).find('.color.definition').text();
+    }) // good so far
+
+    // 4. end wall style front
+    $("div.widget fieldset#end-wall-style-front-fs > input[type='radio']").change(function(){
+        var end_wall_style_front = $("input[name='end-wall-style-front']:checked").val();
+        custom_product.end_wall_style_front = end_wall_style_front;
+    });
+
+    // 5. end wall style back
+    $("div.widget fieldset#end-wall-style-back-fs > input[type='radio']").change(function(){
+        var end_wall_style_back = $("input[name='end-wall-style-back']:checked").val();
+        custom_product.end_wall_style_back = end_wall_style_back;
+    });
+
+    // 6. end wall orientation
+    $("div.widget fieldset#end-wall-orientation-fs > input[type='radio']").change(function(){
+        var end_wall_orientation = $("input[name='end-wall-orientation']:checked").val();
+        custom_product.end_wall_orientation = end_wall_orientation;
+    });
+
+    // 7. side wall color
+    $('.end-wall-color .color.block').click(function(){
+        $('.end-wall-color .color.block').removeClass('selected');
+        $(this).addClass('selected');
+        custom_product.end_wall_color = $(this).find('.color.definition').text();
+    })
 
 
 });

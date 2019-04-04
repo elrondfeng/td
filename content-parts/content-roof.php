@@ -9,7 +9,7 @@
 <h4 class="new-section roof-style"> ROOF STYLE: </h4>
 <div class="row pics stylename">
     <div class="small-16 medium-8 large-8 columns block">
-        <img src="<?php echo get_styleshet_directory_uri(); ?>/imgs/Regular.png">
+        <img src="<?php echo get_stylesheet_directory_uri(); ?>/imgs/Regular.png">
         <p6>Luxury</p6>
     </div>
 
