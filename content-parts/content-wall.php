@@ -94,7 +94,7 @@
         <?php get_template_part('/content-parts/content', 'colorpicker'); ?>
     </div>
 
-    <div id="small-font-color"class="small-font">
+    <div id="small-font-color" class="small-font">
         * Actual colors may vary. We have made every effort to make the colors on screen as close as
         possible to the colors of the actual product, but please refer to physical samples before making
         your color choices.

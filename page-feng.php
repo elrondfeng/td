@@ -64,15 +64,8 @@ get_header(); ?>
                     <?php get_template_part('/content-parts/content', 'wall'); ?>
                 </div>
                 <div id="tabs-5" class="ui-tabs-panel ui-tabs-hide">
-                    <p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus
-                        id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus
-                        eros molestie lectus.</p>
-                    <div class="buttons-container">
-                        <input type="button" id="doors-prev" class="pre-next-button" href="#" value="PREV"
-                               style="font-size: 1.2em">
-                        <input type="button" id="doors-next" class="pre-next-button" href="#" value="NEXT"
-                               style="font-size: 1.2em">
-                    </div>
+                    <?php get_template_part('/content-parts/content', 'door'); ?>
+
                 </div>
                 <div id="tabs-6" class="ui-tabs-panel ui-tabs-hide">
                     <p>Duis cursus. Maecenas ligula eros, blandit nec, pharetra at, semper at, magna. Nullam ac lacus.

@@ -286,6 +286,14 @@ jQuery(document).ready(function($){
         custom_product.end_wall_color = $(this).find('.color.definition').text();
     })
 
+    // DOORS
+    $( "#door-position" ).selectmenu({
+        width: 150
+    });
+    $( "#door-size" ).selectmenu({
+        width: 150
+    });
+
 
 });
 
