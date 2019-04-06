@@ -16,7 +16,9 @@
 <div class="sub-item">
     <div class="sub-item-name">GARAGE DOORS</div>
     <div class="widget">
-        <div class="row">
+        <div id="selected-doors-div">
+        </div>
+        <div class="row door-row">
             <div class="small-20 medium-10 large-10 columns">
                 <select name="door-position" id="door-position">
                     <option value="FRONT" selected>FRONT</option>
@@ -37,6 +39,71 @@
             <div class="small-8 medium-4 large-4 columns">
                 <input type="button" id="door-add-button" value="ADD">
             </div>
+        </div>
+    </div>
+</div>
+
+<div class="sub-item">
+    <div class="sub-item-name">WALK-INS</div>
+    <div class="row walk-in-label">
+        <div class="small-12 medium-6 large-6 columns">
+            <lable for="front-door-spinner">FRONT</lable>
+        </div>
+        <div class="small-12 medium-6 large-6 columns">
+            <lable for="back-door-spinner">BACK</lable>
+        </div>
+        <div class="small-12 medium-6 large-6 columns">
+            <lable for="left-door-spinner">LEFT</lable>
+        </div>
+        <div class="small-12 medium-6 large-6 columns">
+            <lable for="right-door-spinner">RIGHT</lable>
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-12 medium-6 large-6 columns">
+            <input id="front-door-spinner" style="height:40px;width:29px">
+        </div>
+        <div class="small-12 medium-6 large-6 columns">
+            <input id="back-door-spinner" style="height:40px;width:29px">
+        </div>
+        <div class="small-12 medium-6 large-6 columns">
+            <input id="left-door-spinner" style="height:40px;width:29px">
+        </div>
+        <div class="small-12 medium-6 large-6 columns">
+            <input id="right-door-spinner" style="height:40px;width:29px">
+        </div>
+    </div>
+</div>
+
+<div class="sub-item">
+    <div class="sub-item-name">WINDOWS</div>
+    <div class="row window-label">
+        <div class="small-12 medium-6 large-6 columns">
+            <lable for="front-window-spinner">FRONT</lable>
+        </div>
+        <div class="small-12 medium-6 large-6 columns">
+            <lable for="back-window-spinner">BACK</lable>
+        </div>
+        <div class="small-12 medium-6 large-6 columns">
+            <lable for="left-window-spinner">LEFT</lable>
+        </div>
+        <div class="small-12 medium-6 large-6 columns">
+            <lable for="right-window-spinner">RIGHT</lable>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="small-12 medium-6 large-6 columns">
+            <input id="front-window-spinner" style="height:40px;width:29px">
+        </div>
+        <div class="small-12 medium-6 large-6 columns">
+            <input id="back-window-spinner" style="height:40px;width:29px">
+        </div>
+        <div class="small-12 medium-6 large-6 columns">
+            <input id="left-window-spinner" style="height:40px;width:29px">
+        </div>
+        <div class="small-12 medium-6 large-6 columns">
+            <input id="right-window-spinner" style="height:40px;width:29px">
         </div>
     </div>
 </div>

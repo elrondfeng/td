@@ -28,6 +28,7 @@ function wpstarter_child_style() {
     wp_enqueue_script('jquery-ui-tabs');
     wp_enqueue_script('jquery-ui-dialog');
     wp_enqueue_script('jquery-ui-slider');
+    wp_enqueue_script('jquery-ui-spinner');
 
     // original enqueue css stylesheet
     wp_dequeue_style( 'textivia-hephaestus');
