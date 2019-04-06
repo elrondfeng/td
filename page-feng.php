@@ -68,15 +68,8 @@ get_header(); ?>
 
                 </div>
                 <div id="tabs-6" class="ui-tabs-panel ui-tabs-hide">
-                    <p>Duis cursus. Maecenas ligula eros, blandit nec, pharetra at, semper at, magna. Nullam ac lacus.
-                        Nulla facilisi. Praesent viverra justo vitae neque. Praesent blandit adipiscing velit.
-                        Suspendisse potenti. .</p>
-                    <div class="buttons-container">
-                        <input type="button" id="options-prev" class="pre-next-button" href="#" value="PREV"
-                               style="font-size: 1.2em">
-                        <input type="button" id="options-next" class="pre-next-button" href="#" value="NEXT"
-                               style="font-size: 1.2em">
-                    </div>
+                    <?php get_template_part('/content-parts/content', 'option'); ?>
+
                 </div>
             </div>
 

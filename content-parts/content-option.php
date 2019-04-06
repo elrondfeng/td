@@ -1,7 +1,10 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: taofeng
- * Date: 4/6/2019
- * Time: 1:31 PM
- */
+?>
+
+<h3>ADDITIONAL OPTIONS</h3>
+
+
+<div class="buttons-container">
+    <input type="button" id="options-prev" class="pre-next-button" href="#" value="PREV"
+           style="font-size: 1.2em">
+</div>

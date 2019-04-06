@@ -76,6 +76,7 @@ jQuery(document).ready(function ($) {
         end_wall_style_back: 'NO WALL',
         end_wall_orientation: 'HORIZONTAL',
         end_wall_color: '',
+        // doors
         doors: [],
         walk_ins: {
             front: 0,
@@ -88,7 +89,10 @@ jQuery(document).ready(function ($) {
             back: 0,
             left: 0,
             right: 0
-        }
+        },
+        //options
+        anchors:'no anchors',
+        install:"free install"
     };
 
     function door(position, size) {
@@ -396,6 +400,9 @@ jQuery(document).ready(function ($) {
             //console.log("front : " + custom_product.walk_ins.front);
         }
     });
+
+    $("#front-door-spinner").spinner("value", 0);
+
     $("#back-door-spinner").spinner({
         min:0,
         max:8,
@@ -405,6 +412,9 @@ jQuery(document).ready(function ($) {
             //console.log("back : " + custom_product.walk_ins.back);
         }
     });
+
+    $("#back-door-spinner").spinner("value", 0);
+
     $("#left-door-spinner").spinner({
         min:0,
         max:8,
@@ -414,6 +424,9 @@ jQuery(document).ready(function ($) {
             //console.log("left : " + custom_product.walk_ins.left);
         }
     });
+
+    $("#left-door-spinner").spinner("value", 0);
+
     $("#right-door-spinner").spinner({
         min:0,
         max:8,
@@ -423,6 +436,8 @@ jQuery(document).ready(function ($) {
             //console.log("right : " + custom_product.walk_ins.right);
         }
     });
+
+    $("#right-door-spinner").spinner("value", 0);
 
     // windows
 
@@ -435,6 +450,9 @@ jQuery(document).ready(function ($) {
             //console.log("front : " + custom_product.windows.front);
         }
     });
+
+    $("#front-window-spinner").spinner("value", 0);
+
     $("#back-window-spinner").spinner({
         min:0,
         max:8,
@@ -444,6 +462,9 @@ jQuery(document).ready(function ($) {
             //console.log("back : " + custom_product.windows.back);
         }
     });
+
+    $("#back-window-spinner").spinner("value", 0);
+
     $("#left-window-spinner").spinner({
         min:0,
         max:8,
@@ -453,6 +474,9 @@ jQuery(document).ready(function ($) {
             //console.log("left : " + custom_product.windows.left);
         }
     });
+
+    $("#left-window-spinner").spinner("value", 0);
+
     $("#right-window-spinner").spinner({
         min:0,
         max:8,
@@ -463,7 +487,10 @@ jQuery(document).ready(function ($) {
         }
     });
 
+    $("#right-window-spinner").spinner("value", 0);
+
     // options
+
 
 });
 
