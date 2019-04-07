@@ -115,7 +115,7 @@ get_header(); ?>
                         </div>
 
                         <div class="small-16 medium-8 large-8 columns order-parts">
-                            <div class="">
+                            <div class="side-order-now">
                                 <input type="button" style="font-size: 1.2em" class="order-now-button"
                                        value="ORDER NOW">
                             </div>

@@ -91,8 +91,8 @@ jQuery(document).ready(function ($) {
             right: 0
         },
         //options
-        anchors:'no anchors',
-        install:"free install"
+        four_auger_anchors:'no anchors',
+        install_style:"free install"
     };
 
     function door(position, size) {
@@ -489,8 +489,28 @@ jQuery(document).ready(function ($) {
 
     $("#right-window-spinner").spinner("value", 0);
 
-    // options
+    // options : four auger anchors
+    $("input[name='four-auger-anchors']:radio").checkboxradio({
+        icon: false
+    });
+    $("fieldset#four-auger-anchors-fs").controlgroup();
 
+    $("div.widget fieldset#four-auger-anchors-fs > input[type='radio']").change(function () {
+        var four_auger_anchors = $("input[name='four-auger-anchors']:checked").val();
+        custom_product.four_auger_anchors = four_auger_anchors;
+        //console.log("four auger anchors : " +  four_auger_anchors);
+    });
+
+    // install style
+    $("input[name='install-style']:radio").checkboxradio({
+        icon: false
+    });
+    $("fieldset#install-style-fs").controlgroup();
+    $("div.widget fieldset#install-style-fs > input[type='radio']").change(function () {
+        var install_style = $("input[name='install-style']:checked").val();
+        custom_product.install_style = install_style;
+        console.log("install style is : " +  install_style);
+    });
 
 });
 
