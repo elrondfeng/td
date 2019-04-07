@@ -364,7 +364,7 @@ jQuery(document).ready(function ($) {
                     </div>
             `);
             custom_product.doors.push(new door($("#door-position").val(),$("#door-size").val()));
-
+            $("#number-door").text(custom_product.doors.length);
             /*console.log("after push, the number of doors is : " + JSON.stringify(custom_product.doors));*/
         }
     });
@@ -386,6 +386,7 @@ jQuery(document).ready(function ($) {
         /*console.log("after delete, the number of doors is " + JSON.stringify(custom_product.doors))*/
 
         $(this).parent('div').parent('div').remove();
+        $("#number-door").text(custom_product.doors.length);
 
     });
 
@@ -394,10 +395,12 @@ jQuery(document).ready(function ($) {
     $("#front-door-spinner").spinner({
         min:0,
         max:8,
-        change: function( event, ui ) {
-            var value = $( "#front-door-spinner" ).spinner( "value" );
+        spin: function( event, ui ) {
+            var value =  ui.value;//$( "#front-door-spinner" ).spinner( "value" );
             custom_product.walk_ins.front = value;
-            //console.log("front : " + custom_product.walk_ins.front);
+            console.log("front : " + custom_product.walk_ins.front);
+            $("#number-walk-in").text(custom_product.walk_ins.back+custom_product.walk_ins.front
+                                      + custom_product.walk_ins.left + custom_product.walk_ins.right);
         }
     });
 
@@ -406,10 +409,12 @@ jQuery(document).ready(function ($) {
     $("#back-door-spinner").spinner({
         min:0,
         max:8,
-        change: function( event, ui ) {
-            var value = $( "#back-door-spinner" ).spinner( "value" );
+        spin: function( event, ui ) {
+            var value = ui.value; // $( "#back-door-spinner" ).spinner( "value" );
             custom_product.walk_ins.back = value;
             //console.log("back : " + custom_product.walk_ins.back);
+            $("#number-walk-in").text(custom_product.walk_ins.back+custom_product.walk_ins.front
+                + custom_product.walk_ins.left + custom_product.walk_ins.right);
         }
     });
 
@@ -418,10 +423,12 @@ jQuery(document).ready(function ($) {
     $("#left-door-spinner").spinner({
         min:0,
         max:8,
-        change: function( event, ui ) {
-            var value = $( "#left-door-spinner" ).spinner( "value" );
+        spin: function( event, ui ) {
+            var value = ui.value; //$( "#left-door-spinner" ).spinner( "value" );
             custom_product.walk_ins.left = value;
             //console.log("left : " + custom_product.walk_ins.left);
+            $("#number-walk-in").text(custom_product.walk_ins.back+custom_product.walk_ins.front
+                + custom_product.walk_ins.left + custom_product.walk_ins.right);
         }
     });
 
@@ -430,10 +437,12 @@ jQuery(document).ready(function ($) {
     $("#right-door-spinner").spinner({
         min:0,
         max:8,
-        change: function( event, ui ) {
-            var value = $( "#right-door-spinner" ).spinner( "value" );
+        spin: function( event, ui ) {
+            var value = ui.value; //$( "#right-door-spinner" ).spinner( "value" );
             custom_product.walk_ins.right = value;
             //console.log("right : " + custom_product.walk_ins.right);
+            $("#number-walk-in").text(custom_product.walk_ins.back+custom_product.walk_ins.front
+                + custom_product.walk_ins.left + custom_product.walk_ins.right);
         }
     });
 
@@ -444,10 +453,12 @@ jQuery(document).ready(function ($) {
     $("#front-window-spinner").spinner({
         min:0,
         max:8,
-        change: function( event, ui ) {
-            var value = $( "#front-window-spinner" ).spinner( "value" );
+        spin: function( event, ui ) {
+            var value = ui.value; //$( "#front-window-spinner" ).spinner( "value" );
             custom_product.windows.front = value;
             //console.log("front : " + custom_product.windows.front);
+            $("#number-window").text(custom_product.windows.front+custom_product.windows.back+
+                                    custom_product.windows.left+custom_product.windows.right);
         }
     });
 
@@ -456,10 +467,12 @@ jQuery(document).ready(function ($) {
     $("#back-window-spinner").spinner({
         min:0,
         max:8,
-        change: function( event, ui ) {
-            var value = $( "#back-window-spinner" ).spinner( "value" );
+        spin: function( event, ui ) {
+            var value = ui.value; //$( "#back-window-spinner" ).spinner( "value" );
             custom_product.windows.back = value;
             //console.log("back : " + custom_product.windows.back);
+            $("#number-window").text(custom_product.windows.front+custom_product.windows.back+
+                custom_product.windows.left+custom_product.windows.right);
         }
     });
 
@@ -468,10 +481,12 @@ jQuery(document).ready(function ($) {
     $("#left-window-spinner").spinner({
         min:0,
         max:8,
-        change: function( event, ui ) {
-            var value = $( "#left-window-spinner" ).spinner( "value" );
+        spin: function( event, ui ) {
+            var value = ui.value; //$( "#left-window-spinner" ).spinner( "value" );
             custom_product.windows.left = value;
             //console.log("left : " + custom_product.windows.left);
+            $("#number-window").text(custom_product.windows.front+custom_product.windows.back+
+                custom_product.windows.left+custom_product.windows.right);
         }
     });
 
@@ -480,10 +495,12 @@ jQuery(document).ready(function ($) {
     $("#right-window-spinner").spinner({
         min:0,
         max:8,
-        change: function( event, ui ) {
-            var value = $( "#right-window-spinner" ).spinner( "value" );
+        spin: function( event, ui ) {
+            var value = ui.value; //$( "#right-window-spinner" ).spinner( "value" );
             custom_product.windows.right = value;
             //console.log("right : " + custom_product.windows.right);
+            $("#number-window").text(custom_product.windows.front+custom_product.windows.back+
+                custom_product.windows.left+custom_product.windows.right);
         }
     });
 

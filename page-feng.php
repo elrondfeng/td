@@ -143,15 +143,15 @@ get_header(); ?>
                     </div>
                     <div class="row">
                         <div class="small-16 medium-8 large-8 columns">
-                            <div id="width" class="window-door-item green-number"> 0</div>
+                            <div id="number-door" class="window-door-item green-number"> 0</div>
                         </div>
 
                         <div class="small-16 medium-8 large-8 columns">
-                            <div id="length" class="window-door-item green-number"> 0</div>
+                            <div id="number-walk-in" class="window-door-item green-number"> 0</div>
                         </div>
 
                         <div class="small-16 medium-8 large-8 columns">
-                            <div id="height" class="window-door-item green-number"> 0</div>
+                            <div id="number-window" class="window-door-item green-number"> 0</div>
                         </div>
                     </div>
 

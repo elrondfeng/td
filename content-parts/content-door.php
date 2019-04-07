@@ -61,16 +61,16 @@
     </div>
     <div class="row">
         <div class="small-12 medium-6 large-6 columns">
-            <input id="front-door-spinner" style="height:40px;width:29px">
+            <input id="front-door-spinner" style="height:40px;width:29px" readonly>
         </div>
         <div class="small-12 medium-6 large-6 columns">
-            <input id="back-door-spinner" style="height:40px;width:29px">
+            <input id="back-door-spinner" style="height:40px;width:29px" readonly>
         </div>
         <div class="small-12 medium-6 large-6 columns">
-            <input id="left-door-spinner" style="height:40px;width:29px">
+            <input id="left-door-spinner" style="height:40px;width:29px" readonly>
         </div>
         <div class="small-12 medium-6 large-6 columns">
-            <input id="right-door-spinner" style="height:40px;width:29px">
+            <input id="right-door-spinner" style="height:40px;width:29px" readonly>
         </div>
     </div>
 </div>
@@ -94,16 +94,16 @@
 
     <div class="row">
         <div class="small-12 medium-6 large-6 columns">
-            <input id="front-window-spinner" style="height:40px;width:29px">
+            <input id="front-window-spinner" style="height:40px;width:29px" readonly>
         </div>
         <div class="small-12 medium-6 large-6 columns">
-            <input id="back-window-spinner" style="height:40px;width:29px">
+            <input id="back-window-spinner" style="height:40px;width:29px" readonly>
         </div>
         <div class="small-12 medium-6 large-6 columns">
-            <input id="left-window-spinner" style="height:40px;width:29px">
+            <input id="left-window-spinner" style="height:40px;width:29px" readonly>
         </div>
         <div class="small-12 medium-6 large-6 columns">
-            <input id="right-window-spinner" style="height:40px;width:29px">
+            <input id="right-window-spinner" style="height:40px;width:29px" readonly>
         </div>
     </div>
 </div>
