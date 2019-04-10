@@ -207,7 +207,7 @@ jQuery(document).ready(function ($) {
         min: 10,
         max: 30,
         slide: function (event, ui) {
-            var selectedWidth = $(this).slider("value");
+            var selectedWidth = ui.value;// $(this).slider("value");
             $("#width-value").text(selectedWidth);
             custom_product.width = selectedWidth;
             $("#width").text(selectedWidth);
@@ -218,7 +218,7 @@ jQuery(document).ready(function ($) {
         min: 10,
         max: 51,
         slide: function (event, ui) {
-            var selectedLength = $(this).slider("value");
+            var selectedLength = ui.value;//  $(this).slider("value");
             $("#length-value").text(selectedLength);
             custom_product.length = selectedLength;
             $("#length").text(selectedLength);
@@ -229,7 +229,7 @@ jQuery(document).ready(function ($) {
         min: 6,
         max: 12,
         slide: function (event, ui) {
-            var selectedHeight = $(this).slider("value");
+            var selectedHeight = ui.value;//  $(this).slider("value");
             $("#height-value").text(selectedHeight);
             custom_product.height = selectedHeight;
             $("#height").text(selectedHeight);
