@@ -91,8 +91,8 @@ jQuery(document).ready(function ($) {
             right: 0
         },
         //options
-        four_auger_anchors:'no anchors',
-        install_style:"free install"
+        four_auger_anchors: 'no anchors',
+        install_style: "free install"
     };
 
     function door(position, size) {
@@ -138,8 +138,8 @@ jQuery(document).ready(function ($) {
     initProductValues();
 
     function submitZipcode() {
-        console.log(ajaxurl);
-        console.log($('#zip').val());
+        //console.log(ajaxurl);
+        //console.log($('#zip').val());
         jQuery.ajax({
             type: "get",
             dataType: "json",
@@ -149,7 +149,7 @@ jQuery(document).ready(function ($) {
                 'zipcode': $('#zip').val()
             },
             success: function (result) {
-                console.log(JSON.stringify(result));
+                //console.log(JSON.stringify(result));
 
                 // 1. if valid, close the dialog. display it on teh start page
                 // 2. if not valid, do nothing
@@ -346,7 +346,7 @@ jQuery(document).ready(function ($) {
 
     var max_door = 5;
 
-    $("#door-add-button").on("click", function(e){
+    $("#door-add-button").on("click", function (e) {
         e.stopPropagation();
         var added_door = $('div.row.added-door').length;
 
@@ -365,21 +365,23 @@ jQuery(document).ready(function ($) {
                         </div>
                     </div>
             `);
-            custom_product.doors.push(new door($("#door-position").val(),$("#door-size").val()));
+            custom_product.doors.push(new door($("#door-position").val(), $("#door-size").val()));
             $("#number-door").text(custom_product.doors.length);
             /*console.log("after push, the number of doors is : " + JSON.stringify(custom_product.doors));*/
         }
     });
 
     // NOTE: if the remove handler be in inside of add handler , then weird things happens.
-    $(document).on('click', ".door-remove-button" , function (e) {
+    $(document).on('click', ".door-remove-button", function (e) {
         e.stopPropagation();
         e.preventDefault();
 
-        var this_door = new door( $(this).parent('div').parent('div').find('.door-position').text().trim(),
-                                  $(this).parent('div').parent('div').find('.door-size').text().trim());
+        var this_door = new door($(this).parent('div').parent('div').find('.door-position').text().trim(),
+            $(this).parent('div').parent('div').find('.door-size').text().trim());
 
-        var index = custom_product.doors.findIndex(function(item){ return isEquivalent(item,this);}, this_door);
+        var index = custom_product.doors.findIndex(function (item) {
+            return isEquivalent(item, this);
+        }, this_door);
 
         /*console.log("the index is " + index);*/
 
@@ -395,27 +397,27 @@ jQuery(document).ready(function ($) {
     // walk-ins
 
     $("#front-door-spinner").spinner({
-        min:0,
-        max:8,
-        spin: function( event, ui ) {
-            var value =  ui.value;//$( "#front-door-spinner" ).spinner( "value" );
+        min: 0,
+        max: 8,
+        spin: function (event, ui) {
+            var value = ui.value;//$( "#front-door-spinner" ).spinner( "value" );
             custom_product.walk_ins.front = value;
             console.log("front : " + custom_product.walk_ins.front);
-            $("#number-walk-in").text(custom_product.walk_ins.back+custom_product.walk_ins.front
-                                      + custom_product.walk_ins.left + custom_product.walk_ins.right);
+            $("#number-walk-in").text(custom_product.walk_ins.back + custom_product.walk_ins.front
+                + custom_product.walk_ins.left + custom_product.walk_ins.right);
         }
     });
 
     $("#front-door-spinner").spinner("value", 0);
 
     $("#back-door-spinner").spinner({
-        min:0,
-        max:8,
-        spin: function( event, ui ) {
+        min: 0,
+        max: 8,
+        spin: function (event, ui) {
             var value = ui.value; // $( "#back-door-spinner" ).spinner( "value" );
             custom_product.walk_ins.back = value;
             //console.log("back : " + custom_product.walk_ins.back);
-            $("#number-walk-in").text(custom_product.walk_ins.back+custom_product.walk_ins.front
+            $("#number-walk-in").text(custom_product.walk_ins.back + custom_product.walk_ins.front
                 + custom_product.walk_ins.left + custom_product.walk_ins.right);
         }
     });
@@ -423,13 +425,13 @@ jQuery(document).ready(function ($) {
     $("#back-door-spinner").spinner("value", 0);
 
     $("#left-door-spinner").spinner({
-        min:0,
-        max:8,
-        spin: function( event, ui ) {
+        min: 0,
+        max: 8,
+        spin: function (event, ui) {
             var value = ui.value; //$( "#left-door-spinner" ).spinner( "value" );
             custom_product.walk_ins.left = value;
             //console.log("left : " + custom_product.walk_ins.left);
-            $("#number-walk-in").text(custom_product.walk_ins.back+custom_product.walk_ins.front
+            $("#number-walk-in").text(custom_product.walk_ins.back + custom_product.walk_ins.front
                 + custom_product.walk_ins.left + custom_product.walk_ins.right);
         }
     });
@@ -437,13 +439,13 @@ jQuery(document).ready(function ($) {
     $("#left-door-spinner").spinner("value", 0);
 
     $("#right-door-spinner").spinner({
-        min:0,
-        max:8,
-        spin: function( event, ui ) {
+        min: 0,
+        max: 8,
+        spin: function (event, ui) {
             var value = ui.value; //$( "#right-door-spinner" ).spinner( "value" );
             custom_product.walk_ins.right = value;
             //console.log("right : " + custom_product.walk_ins.right);
-            $("#number-walk-in").text(custom_product.walk_ins.back+custom_product.walk_ins.front
+            $("#number-walk-in").text(custom_product.walk_ins.back + custom_product.walk_ins.front
                 + custom_product.walk_ins.left + custom_product.walk_ins.right);
         }
     });
@@ -453,56 +455,56 @@ jQuery(document).ready(function ($) {
     // windows
 
     $("#front-window-spinner").spinner({
-        min:0,
-        max:8,
-        spin: function( event, ui ) {
+        min: 0,
+        max: 8,
+        spin: function (event, ui) {
             var value = ui.value; //$( "#front-window-spinner" ).spinner( "value" );
             custom_product.windows.front = value;
             //console.log("front : " + custom_product.windows.front);
-            $("#number-window").text(custom_product.windows.front+custom_product.windows.back+
-                                    custom_product.windows.left+custom_product.windows.right);
+            $("#number-window").text(custom_product.windows.front + custom_product.windows.back +
+                custom_product.windows.left + custom_product.windows.right);
         }
     });
 
     $("#front-window-spinner").spinner("value", 0);
 
     $("#back-window-spinner").spinner({
-        min:0,
-        max:8,
-        spin: function( event, ui ) {
+        min: 0,
+        max: 8,
+        spin: function (event, ui) {
             var value = ui.value; //$( "#back-window-spinner" ).spinner( "value" );
             custom_product.windows.back = value;
             //console.log("back : " + custom_product.windows.back);
-            $("#number-window").text(custom_product.windows.front+custom_product.windows.back+
-                custom_product.windows.left+custom_product.windows.right);
+            $("#number-window").text(custom_product.windows.front + custom_product.windows.back +
+                custom_product.windows.left + custom_product.windows.right);
         }
     });
 
     $("#back-window-spinner").spinner("value", 0);
 
     $("#left-window-spinner").spinner({
-        min:0,
-        max:8,
-        spin: function( event, ui ) {
+        min: 0,
+        max: 8,
+        spin: function (event, ui) {
             var value = ui.value; //$( "#left-window-spinner" ).spinner( "value" );
             custom_product.windows.left = value;
             //console.log("left : " + custom_product.windows.left);
-            $("#number-window").text(custom_product.windows.front+custom_product.windows.back+
-                custom_product.windows.left+custom_product.windows.right);
+            $("#number-window").text(custom_product.windows.front + custom_product.windows.back +
+                custom_product.windows.left + custom_product.windows.right);
         }
     });
 
     $("#left-window-spinner").spinner("value", 0);
 
     $("#right-window-spinner").spinner({
-        min:0,
-        max:8,
-        spin: function( event, ui ) {
+        min: 0,
+        max: 8,
+        spin: function (event, ui) {
             var value = ui.value; //$( "#right-window-spinner" ).spinner( "value" );
             custom_product.windows.right = value;
             //console.log("right : " + custom_product.windows.right);
-            $("#number-window").text(custom_product.windows.front+custom_product.windows.back+
-                custom_product.windows.left+custom_product.windows.right);
+            $("#number-window").text(custom_product.windows.front + custom_product.windows.back +
+                custom_product.windows.left + custom_product.windows.right);
         }
     });
 
@@ -528,31 +530,13 @@ jQuery(document).ready(function ($) {
     $("div.widget fieldset#install-style-fs > input[type='radio']").change(function () {
         var install_style = $("input[name='install-style']:checked").val();
         custom_product.install_style = install_style;
-        console.log("install style is : " +  install_style);
+        //console.log("install style is : " + install_style);
     });
 
-    // auto populate value to the gravity form fields.
-    jQuery("#input_5_38").val(custom_product.price.init_deposit);
-    jQuery("#input_5_38").prop('readonly', true);
-
-    jQuery("#input_5_39").val(custom_product.price.all_price);
-    jQuery("#input_5_39").prop('readonly', true);
-
-    jQuery("#input_5_24").val(custom_product.width);
-    jQuery("#input_5_24").prop('readonly', true);
-
-    jQuery("#input_5_29").val(custom_product.length);
-    jQuery("#input_5_29").prop('readonly', true);
-
-    jQuery("#input_5_28").val(custom_product.height);
-    jQuery("#input_5_28").prop('readonly', true);
-
-    jQuery("#input_5_35").html(JSON.stringify(custom_product,undefined,4));
-    jQuery("#input_5_35").prop('readonly', true);
-
-
-
-
+    // save the javascript object.
+    $(".order-now-button").click(function () {
+        sessionStorage.setItem("carport_product", JSON.stringify(custom_product));
+    });
 
 });
 

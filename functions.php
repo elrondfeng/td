@@ -18,6 +18,10 @@ function wpstarter_child_style() {
     // style and script
     wp_enqueue_script( 'custom-product', get_stylesheet_directory_uri() . '/js/customproduct.js', array('jquery'), '1.0', false );
 
+    if ( is_page('checkout')) {
+        wp_enqueue_script('checkout', get_stylesheet_directory_uri() . '/js/checkout.js', array('jquery'), '1.0', false);
+    }
+
     # custom product css
     wp_enqueue_style( 'custom-product-style', get_stylesheet_directory_uri() .'/css/customproduct.css' , array( 'parent-styles' ), '1.0');
     # jquery ui external
