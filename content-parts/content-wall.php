@@ -2,9 +2,9 @@
 
 ?>
 
-<h3>WALLS & SIDING OPTIONS</h3>
-<h5>Customize your walls with enclosures, colors, and orientation options for the siding.
-    You may add doors and windows in the next step.</h5>
+<h3>Side Walls and End Options</h3>
+<h5>Customize how many side and end walls you want.
+    If you are making a garage, you will want to choose two sides and two ends.</h5>
 <div class="sub-item">
     <div class="sub-item-name">SIDE WALL STYLE</div>
     <div class="widget">

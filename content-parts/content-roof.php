@@ -4,23 +4,23 @@
 <h3> ROOF STYLE DESIGNS </h3>
 <h5>
     Choose a metal roofing style and customize your colors, then click next.
-    Regular is good, A-Frame is better, and Vertical is best. </h5>
+    Regular style is standard, Boxed-Eave is a Luxury Style, and Vertical is the best and most functional. </h5>
 
 <h4 class="new-section roof-style"> ROOF STYLE: </h4>
 <div class="row pics stylename">
     <div class="small-16 medium-8 large-8 columns block">
         <img src="<?php echo get_stylesheet_directory_uri(); ?>/imgs/regular-short.png">
-        <p6>Premium</p6>
+        <p6>Regular Style</p6>
     </div>
 
     <div class="small-16 medium-8 large-8 columns block">
         <img src="<?php echo get_stylesheet_directory_uri(); ?>/imgs/luxury-short.png">
-        <p6>Luxury</p6>
+        <p6>Boxed -Eave Style</p6>
     </div>
 
     <div class="small-16 medium-8 large-8 columns block">
         <img src="<?php echo get_stylesheet_directory_uri(); ?>/imgs/platinum-short.png">
-        <p6>Platinum</p6>
+        <p6>Vertical Style</p6>
     </div>
 </div>
 

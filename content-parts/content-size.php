@@ -7,13 +7,13 @@
 
 <div class="sub-item ">
     <span class="sub-item-name">FRAME WIDTH:</span><span class="green-number dimension-value"
-                                                         id="width-value">10</span>
+                                                         id="width-value">12</span>
     <div id="width-slider"></div>
 </div>
 
 <div class="sub-item ">
     <span class="sub-item-name">FRAME LENGTH:</span><span class="green-number dimension-value"
-                                                          id="length-value">10</span>
+                                                          id="length-value">21</span>
     <div id="length-slider"></div>
 </div>
 
@@ -28,15 +28,18 @@
     <div class="checkboxradio-container">
         <label for="cb-certified" id="certifiedcheckbox">Certified</label>
         <input type="checkbox" name="cb-certified" id="cb-certified">
-        <label for="cb-gauge" id="gaugecheckbox">12 Gauge </label>
+        <label for="cb-gauge" id="gaugecheckbox">Upgrade to 12 Gauge</label>
         <input type="checkbox" name="cb-gauge" id="cb-gauge">
     </div>
 </div>
 
-<h4>Building permits: if required, your building must be "certified." Remember, frame width is
-    measured outside edge to outside edge, and length is generally 1' shorter than roof length.
-    In select locations, engineering for vertical style roofs can result in a roof and frame
-    that are flush, therefore these buildings are 1' shorter than stated roof length.</h4>
+<h4>Certification is required if you are needing to draw a permit for your county of residence.
+    It is highly recommended to check with your county before not certifying the building.
+    Meta buildings cannot be certified once installed without certification.
+    Certification is optional, but it also provides you with 140 mph wind protection,
+    40 psf per foot on the roof, extra bracing, extra anchors, and a set of blueprints for
+    you and/or the county county.  Also choosing to get your building certified,
+    you will be provided with a 20 year warranty.</h4>
 
 <div class="buttons-container">
     <input type="button" id="size-prev" class="pre-next-button" href="#" value="PREV"

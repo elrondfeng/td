@@ -26,44 +26,44 @@ jQuery(document).ready(function ($) {
 
     console.log("object is " + JSON.stringify(carport_product));
 
-    jQuery("#input_5_31").val(carport_product.price.init_deposit);
-    jQuery("#input_5_31").prop('readonly', true);
+    jQuery("#input_4_11").val(carport_product.width);
+    jQuery("#input_4_11").prop('readonly', true);
 
-    jQuery("#input_5_30").val(carport_product.price.all_price);
-    jQuery("#input_5_30").prop('readonly', true);
+    jQuery("#input_4_13").val(carport_product.length);
+    jQuery("#input_4_13").prop('readonly', true);
 
-    jQuery("#input_5_18").val(carport_product.width);
-    jQuery("#input_5_18").prop('readonly', true);
+    jQuery("#input_4_12").val(carport_product.height);
+    jQuery("#input_4_12").prop('readonly', true);
 
-    jQuery("#input_5_19").val(carport_product.length);
-    jQuery("#input_5_19").prop('readonly', true);
+    jQuery("#input_4_16").val(carport_product.doors.length);
+    jQuery("#input_4_16").prop('readonly', true);
 
-    jQuery("#input_5_20").val(carport_product.height);
-    jQuery("#input_5_20").prop('readonly', true);
+    jQuery("#input_4_15").val(carport_product.walk_ins.back + carport_product.walk_ins.front + carport_product.walk_ins.left + carport_product.walk_ins.right);
+    jQuery("#input_4_15").prop('readonly', true);
 
-    jQuery("#input_5_21").val(carport_product.doors.length);
-    jQuery("#input_5_21").prop('readonly', true);
+    jQuery("#input_4_14").val(carport_product.windows.front + carport_product.windows.back + carport_product.windows.left + carport_product.windows.right);
+    jQuery("#input_4_14").prop('readonly', true);
 
-    jQuery("#input_5_23").val(carport_product.walk_ins.back + carport_product.walk_ins.front + carport_product.walk_ins.left + carport_product.walk_ins.right);
-    jQuery("#input_5_23").prop('readonly', true);
+    jQuery("#input_4_9").val(carport_product.roof_color);
+    jQuery("#input_4_9").prop('readonly', true);
 
-    jQuery("#input_5_22").val(carport_product.windows.front + carport_product.windows.back + carport_product.windows.left + carport_product.windows.right);
-    jQuery("#input_5_22").prop('readonly', true);
+    jQuery("#input_4_19").val(carport_product.side_wall_color);
+    jQuery("#input_4_19").prop('readonly', true);
 
-    jQuery("#input_5_25").val(carport_product.roof_color);
-    jQuery("#input_5_25").prop('readonly', true);
+    jQuery("#input_4_18").val(carport_product.end_wall_color);
+    jQuery("#input_4_18").prop('readonly', true);
 
-    jQuery("#input_5_24").val(carport_product.side_wall_color);
-    jQuery("#input_5_24").prop('readonly', true);
+    jQuery("#input_4_17").val(carport_product.trim_color);
+    jQuery("#input_4_17").prop('readonly', true);
 
-    jQuery("#input_5_27").val(carport_product.end_wall_color);
-    jQuery("#input_5_27").prop('readonly', true);
+    jQuery("#input_4_23").val(carport_product.price.init_deposit);
+    jQuery("#input_4_23").prop('readonly', true);
 
-    jQuery("#input_5_26").val(carport_product.trim_color);
-    jQuery("#input_5_26").prop('readonly', true);
+    jQuery("#input_4_20").val(carport_product.price.all_price);
+    jQuery("#input_4_20").prop('readonly', true);
 
-    jQuery("#input_5_32").html(JSON.stringify(carport_product, undefined, 4));
-    jQuery("#input_5_32").prop('readonly', true);
+    jQuery("#input_4_24").html(JSON.stringify(carport_product, undefined, 4));
+    jQuery("#input_4_24").prop('readonly', true);
 
 
 });

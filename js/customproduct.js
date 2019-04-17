@@ -206,8 +206,8 @@ jQuery(document).ready(function ($) {
 
     /* Size part  */
     $("#width-slider").slider({
-        min: 10,
-        max: 30,
+        min: 12,
+        max: 60,
         slide: function (event, ui) {
             var selectedWidth = ui.value;// $(this).slider("value");
             $("#width-value").text(selectedWidth);
@@ -217,8 +217,8 @@ jQuery(document).ready(function ($) {
     });
 
     $("#length-slider").slider({
-        min: 10,
-        max: 51,
+        min: 21,
+        max: 60,
         slide: function (event, ui) {
             var selectedLength = ui.value;//  $(this).slider("value");
             $("#length-value").text(selectedLength);
@@ -229,7 +229,7 @@ jQuery(document).ready(function ($) {
 
     $("#height-slider").slider({
         min: 6,
-        max: 12,
+        max: 20,
         slide: function (event, ui) {
             var selectedHeight = ui.value;//  $(this).slider("value");
             $("#height-value").text(selectedHeight);

@@ -27,10 +27,8 @@ get_header(); ?>
                 </ul>
                 <div id="tabs-1" class="ui-tabs-panel">
                     <div id="start">
-                        <h5>LOCAL CARPORT PRICING, DESIGN YOUR METAL BUILDING</h5>
-                        <h5>Verify your zip code is correct for local pricing, then click below to
-                            start customizing your building. You can select from the tabs above at any time
-                            to make changes.</h5>
+                        <h5>Pricing for your area, design your metal building</h5>
+                        <h5>Click below to customize your building.  You may click the tabs above to make changes to your building.</h5>
                         <h5>Price Includes Delivery & Installation.</h5>
                         <div class="buttons-container">
                             <input id="startCustomizeButton" class="start-button" type="submit" value="START"
