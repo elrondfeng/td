@@ -460,7 +460,8 @@ label#gaugecheckbox.ui-checkboxradio-checked.ui-corner-all.ui-button.ui-widget{
 fieldset#side-wall-style-fs,fieldset#side-wall-orientation-fs,
 fieldset#end-wall-style-front-fs, fieldset#end-wall-style-back-fs,
 fieldset#end-wall-orientation-fs, fieldset#four-auger-anchors-fs,
-fieldset#install-style-fs{
+fieldset#install-style-fs, fieldset#gable-ends-fs,fieldset#insulation-fs,
+fieldset#panels-fs{
     border:none;
 }
 /* all radios on this page */
@@ -592,7 +593,6 @@ fieldset label.ui-checkboxradio-radio-label.ui-checkboxradio-label.ui-checkboxra
 .row.checkout_form{
     margin-top:40px;
 }
-
 
 
 

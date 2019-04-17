@@ -69,13 +69,13 @@ jQuery(document).ready(function ($) {
         certified: 'NO',
         gauge: 'NO',
         //wall
-        side_wall_style: 'NO WALL',
-        side_wall_orientation: 'HORIZONTAL',
-        side_wall_color: '',
-        end_wall_style_front: 'NO WALL',
-        end_wall_style_back: 'NO WALL',
-        end_wall_orientation: 'HORIZONTAL',
-        end_wall_color: '',
+        side_wall_number: 'NONE',
+/*        side_wall_orientation: 'HORIZONTAL',*/
+/*        side_wall_color: '',*/
+        end_wall_number: 'NONE',
+/*        end_wall_style_back: 'NO WALL',
+        end_wall_orientation: 'HORIZONTAL',*/
+        side_end_wall_color: '',
         // doors
         doors: [],
         walk_ins: {
@@ -91,8 +91,11 @@ jQuery(document).ready(function ($) {
             right: 0
         },
         //options
-        four_auger_anchors: 'no anchors',
-        install_style: "free install"
+/*        four_auger_anchors: 'no anchors',
+        install_style: "free install",*/
+        gable_ends:'NONE',
+        insulation:'1/2" Bubble Wrap $1sq ft',
+        panels: "21' long $100"
     };
 
     function door(position, size) {
@@ -269,10 +272,10 @@ jQuery(document).ready(function ($) {
     });
     $("fieldset#side-wall-style-fs").controlgroup();
 
-    $("input[name='side-wall-orientation']:radio").checkboxradio({
+/*    $("input[name='side-wall-orientation']:radio").checkboxradio({
         icon: false
     });
-    $("fieldset#side-wall-orientation-fs").controlgroup();
+    $("fieldset#side-wall-orientation-fs").controlgroup();*/
 
     //
     $("input[name='end-wall-style-front']:radio").checkboxradio({
@@ -280,60 +283,60 @@ jQuery(document).ready(function ($) {
     });
     $("fieldset#end-wall-style-front-fs").controlgroup();
 
-    $("input[name='end-wall-style-back']:radio").checkboxradio({
+/*    $("input[name='end-wall-style-back']:radio").checkboxradio({
         icon: false
     });
-    $("fieldset#end-wall-style-back-fs").controlgroup();
+    $("fieldset#end-wall-style-back-fs").controlgroup();*/
 
-    $("input[name='end-wall-orientation']:radio").checkboxradio({
+/*    $("input[name='end-wall-orientation']:radio").checkboxradio({
         icon: false
     });
-    $("fieldset#end-wall-orientation-fs").controlgroup();
+    $("fieldset#end-wall-orientation-fs").controlgroup();*/
 
     // update radio choice of the wall tab to custom_product object
 
     // 1. side wall style
     $("div.widget fieldset#side-wall-style-fs > input[type='radio']").change(function () {
-        var side_wall_style = $("input[name='side-wall-style']:checked").val();
-        custom_product.side_wall_style = side_wall_style;
+        var side_wall_number = $("input[name='side-wall-style']:checked").val();
+        custom_product.side_wall_number = side_wall_number;
     });
 
     // 2. side wall orientation
-    $("div.widget fieldset#side-wall-orientation-fs > input[type='radio']").change(function () {
+/*    $("div.widget fieldset#side-wall-orientation-fs > input[type='radio']").change(function () {
         var side_wall_orientation = $("input[name='side-wall-orientation']:checked").val();
         custom_product.side_wall_orientation = side_wall_orientation;
-    });
+    });*/
 
     // 3. side wall color
-    $('.side-wall-color .color.block').click(function () {
+/*    $('.side-wall-color .color.block').click(function () {
         $('.side-wall-color .color.block').removeClass('selected');
         $(this).addClass('selected');
         custom_product.side_wall_color = $(this).find('.color.definition').text();
-    }) // good so far
+    }) // good so far*/
 
     // 4. end wall style front
     $("div.widget fieldset#end-wall-style-front-fs > input[type='radio']").change(function () {
-        var end_wall_style_front = $("input[name='end-wall-style-front']:checked").val();
-        custom_product.end_wall_style_front = end_wall_style_front;
+        var end_wall_number = $("input[name='end-wall-style-front']:checked").val();
+        custom_product.end_wall_number = end_wall_number;
     });
 
     // 5. end wall style back
-    $("div.widget fieldset#end-wall-style-back-fs > input[type='radio']").change(function () {
+/*    $("div.widget fieldset#end-wall-style-back-fs > input[type='radio']").change(function () {
         var end_wall_style_back = $("input[name='end-wall-style-back']:checked").val();
         custom_product.end_wall_style_back = end_wall_style_back;
-    });
+    });*/
 
     // 6. end wall orientation
-    $("div.widget fieldset#end-wall-orientation-fs > input[type='radio']").change(function () {
+/*    $("div.widget fieldset#end-wall-orientation-fs > input[type='radio']").change(function () {
         var end_wall_orientation = $("input[name='end-wall-orientation']:checked").val();
         custom_product.end_wall_orientation = end_wall_orientation;
-    });
+    });*/
 
     // 7. side wall color
     $('.end-wall-color .color.block').click(function () {
         $('.end-wall-color .color.block').removeClass('selected');
         $(this).addClass('selected');
-        custom_product.end_wall_color = $(this).find('.color.definition').text();
+        custom_product.side_end_wall_color = $(this).find('.color.definition').text();
     })
 
     // DOORS
@@ -510,7 +513,7 @@ jQuery(document).ready(function ($) {
 
     $("#right-window-spinner").spinner("value", 0);
 
-    // options : four auger anchors
+/*    // options : four auger anchors
     $("input[name='four-auger-anchors']:radio").checkboxradio({
         icon: false
     });
@@ -531,6 +534,42 @@ jQuery(document).ready(function ($) {
         var install_style = $("input[name='install-style']:checked").val();
         custom_product.install_style = install_style;
         //console.log("install style is : " + install_style);
+    });*/
+
+    //********************************************************//
+    $("input[name='gable-ends']:radio").checkboxradio({
+        icon: false
+    });
+    $("fieldset#gable-ends-fs").controlgroup();
+
+    $("div.widget fieldset#gable-ends-fs > input[type='radio']").change(function () {
+        var gable_ends = $("input[name='gable-ends']:checked").val();
+        custom_product.gable_ends= gable_ends;
+        console.log("gable_ends : " +  gable_ends);
+    });
+
+    //********************************************************//
+    $("input[name='insulation']:radio").checkboxradio({
+        icon: false
+    });
+    $("fieldset#insulation-fs").controlgroup();
+
+    $("div.widget fieldset#insulation-fs > input[type='radio']").change(function () {
+        var insulation = $("input[name='insulation']:checked").val();
+        custom_product.insulation= insulation;
+        console.log("insulation : " +  insulation);
+    });
+
+    //********************************************************//
+    $("input[name='panels']:radio").checkboxradio({
+        icon: false
+    });
+    $("fieldset#panels-fs").controlgroup();
+
+    $("div.widget fieldset#panels-fs  input[type='radio']").change(function () {
+        var panels = $("input[name='panels']:checked").val();
+        custom_product.panels= panels;
+        console.log("panels : " +  panels);
     });
 
     // save the javascript object.
