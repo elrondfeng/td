@@ -165,11 +165,29 @@ get_header(); ?>
                 <div class="price">
                     <div class="row">
                         <div class="small-36 medium-16 large-16 columns">
-                            <div class="price-item">TOTAL SPECIAL LOW PRICE:</div>
+                            <div class="price-item">SPECIAL LOW PRICE:</div>
                         </div>
 
                         <div class="small-12 medium-8 large-8 columns">
                             <div id="total-price" class="price-item"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="small-36 medium-16 large-16 columns">
+                            <div class="price-item">TAX:</div>
+                        </div>
+
+                        <div class="small-12 medium-8 large-8 columns">
+                            <div id="total-tax" class="price-item"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="small-36 medium-16 large-16 columns">
+                            <div class="price-item">TOTAL:</div>
+                        </div>
+
+                        <div class="small-12 medium-8 large-8 columns">
+                            <div id="total-td-price" class="price-item"></div>
                         </div>
                     </div>
                     <div class="row">

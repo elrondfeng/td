@@ -2,6 +2,7 @@
 require "zipcode.php" ;
 require "taxrate.php" ;
 
+require get_theme_file_path('/include/Pricer.php');
 
 /**
  * Enqueue child-theme style sheet
@@ -116,11 +117,13 @@ function check_zip_function(){
     $my_tax = new TaxRate();
 
     $my_county = $my_zip->getCounty($zip_input);
+    write_log($my_county);
 
     $result['zip'] = $zip_input;
     $result['county'] = $my_county;
     $result['valid'] = $my_zip->isValid($zip_input);
     $result['tax'] = $my_tax ->getRate($my_county);
+    write_log($result['tax']);
 
     $json = json_encode($result);
 
@@ -128,4 +131,45 @@ function check_zip_function(){
 
     wp_die();
 }
+
+add_action('wp_ajax_nopriv_docalculateprice', 'calculate_price_function');
+add_action('wp_ajax_docalculateprice', 'calculate_price_function');
+
+function calculate_price_function(){
+    header('Content-type: application/json');
+
+    $tdPricer = new Pricer($_GET['roof'], $_GET['width'], $_GET['length'], $_GET['height'], $_GET['walk'],
+                           $_GET['window'], $_GET['door'], $_GET['cert'], $_GET['side'], $_GET['end'],
+                           $_GET['gable'], $_GET['panel-num'], $_GET['panel-size'] );
+
+    $pricer_result = $tdPricer->getPrice();
+
+
+    // return result:
+    $result = array();
+
+    $result['log'] = $pricer_result["log"];
+    $result['price'] = $pricer_result["price"];
+    $result['deposit'] = 10;
+    $result['total'] = 1000000;
+
+
+    $json = json_encode($result);
+
+    echo $json;
+
+    wp_die();
+}
+
+function write_log($log) {
+    if (true === WP_DEBUG) {
+        if (is_array($log) || is_object($log)) {
+            error_log(print_r($log, true));
+        } else {
+            error_log($log);
+        }
+    }
+}
+
+
 

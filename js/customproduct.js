@@ -51,20 +51,22 @@ jQuery(document).ready(function ($) {
         zip: 0,
         tax: 0,
         county: '',
-        garage_door: 0,
-        walk_in_door: 0,
-        window: 0,
+        garage_door_num: 0,
+        walk_in_door_num: 0,
+        window_num: 0,
         price: {
-            all_price: 995.00,
+            tax_amount:0,
+            all_price: 895.00,
+            total:0,
             init_deposit: 119.40
         },
         //roof
-        roof_style: '',
+        roof_style: 'Regular Style',
         roof_color: '',
         trim_color: '',
         // size
-        width: 10,
-        length: 10,
+        width: 12,
+        length: 21,
         height: 6,
         certified: 'NO',
         gauge: 'NO',
@@ -94,9 +96,24 @@ jQuery(document).ready(function ($) {
 /*        four_auger_anchors: 'no anchors',
         install_style: "free install",*/
         gable_ends:'NONE',
+        panels_number:'NONE',
         insulation:'1/2" Bubble Wrap $1sq ft',
-        panels: "21' long $100"
+        panels_size: "21"
     };
+
+    function getDoorString(){
+        var doors_string ="";
+        for (let i = 0; i<custom_product.doors.length; i++){
+            console.log("single my door : " + custom_product.doors[i].size);
+            doors_string = doors_string.concat(custom_product.doors[i].size);
+            if( i !== custom_product.doors.length -1 ){
+                doors_string = doors_string.concat("|")
+            }
+        }
+
+        console.log("get door string: " + doors_string);
+        return doors_string;
+    }
 
     function door(position, size) {
         this.position = position;
@@ -136,9 +153,49 @@ jQuery(document).ready(function ($) {
         $('#height').html(custom_product.height);
         $('#total-price').html(custom_product.price.all_price);
         $('#today-deposit').html(custom_product.price.init_deposit);
+        $('#total-tax').html(custom_product.price.all_price*custom_product.tax);
+        $('#total-td-price').html(custom_product.price.all_price);
+
     }
 
     initProductValues();
+
+    function calculatePrice(){
+        jQuery.ajax({
+            type: 'get',
+            dataType:"json",
+            url: ajaxurl,
+            data: {
+                'action':'docalculateprice',
+                'roof':custom_product.roof_style,
+                'width' : custom_product.width,
+                'length':custom_product.length,
+                'height':custom_product.height,
+                'walk': custom_product.walk_in_door_num,
+                'window': custom_product.window_num,
+                "door":getDoorString(),
+                "cert":custom_product.certified,
+                "side":custom_product.side_wall_number,
+                "end":custom_product.end_wall_number,
+                'gable':custom_product.gable_ends,
+                'panel-num':custom_product.panels_number,
+                'panel-size':custom_product.panels_size
+            },
+            success: function(response) {
+                console.log(JSON.stringify(response, null, 4));
+                custom_product.price.all_price = response.price;
+                $('#total-price').html(response.price);
+                handelTax();
+            }
+        });
+    }
+
+    function handelTax(){
+        custom_product.price.tax_amount = (custom_product.tax*custom_product.price.all_price/100);
+        custom_product.price.total = custom_product.price.all_price + custom_product.price.tax_amount;
+        $("#total-tax").html(custom_product.price.tax_amount.toFixed(2));
+        $("#total-td-price").html(custom_product.price.total.toFixed(2));
+    }
 
     function submitZipcode() {
         //console.log(ajaxurl);
@@ -163,6 +220,7 @@ jQuery(document).ready(function ($) {
                     custom_product.zip = result.zip;
                     custom_product.county = result.county;
                     custom_product.tax = result.tax;
+                    handelTax();
                 } else {
                     console.log("not valid");
                     ;
@@ -193,6 +251,7 @@ jQuery(document).ready(function ($) {
         $('.row.pics.stylename .block p6').removeClass('selected');
         $(this).find('p6').addClass('selected');
         custom_product.roof_style = $(this).find('p6').text();
+        calculatePrice();
     })
 
     $('.roof-color .color.block').click(function () {
@@ -208,28 +267,105 @@ jQuery(document).ready(function ($) {
     })
 
     /* Size part  */
+
+    function adjustLengthSlider(event){
+        event.preventDefault();
+        event.stopPropagation();
+        event.stopImmediatePropagation();
+        if(custom_product.width<=24){
+            $("#length-slider").slider("option","max", 46);
+            if(($("#length-slider").slider( "option", "value" ))>46){
+                $("#length-slider").slider( "option", "value", 46);
+                $("#length-value").text(46);
+                custom_product.length = 46;
+                $("#length").text(46);
+            }
+        } else if (custom_product.width>=32) {
+            $("#length-slider").slider("option","max", 51);
+        } else {
+            $("#length-slider").slider("option","max", 61);
+        }
+    }
+
+    function adjustHeightSlider(event){
+        event.preventDefault();
+        event.stopPropagation();
+        event.stopImmediatePropagation();
+        if (custom_product.width>=32) {
+            $("#height-slider").slider("option","min", 8);
+            if(($("#height-slider").slider( "option", "value" ))<8){
+                $("#height-slider").slider( "option", "value", 8);
+                $("#height-value").text(8);
+                custom_product.height = 8;
+                $("#height").text(8);
+            }
+        } else {
+            $("#height-slider").slider("option","min", 6);
+        }
+
+    }
+    // width slider
+    var width_map = [12, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60];
     $("#width-slider").slider({
-        min: 12,
-        max: 60,
+        min: 0,
+        max: width_map.length - 1,
         slide: function (event, ui) {
-            var selectedWidth = ui.value;// $(this).slider("value");
+            var selectedWidth = width_map[ui.value];// $(this).slider("value");
             $("#width-value").text(selectedWidth);
             custom_product.width = selectedWidth;
             $("#width").text(selectedWidth);
+        },
+        change: function(event,ui){
+            adjustLengthSlider(event);
+            adjustHeightSlider(event);
+            calculatePrice();
+            event.stopPropagation();
+            event.preventDefault();
         }
     });
-
+    // length slider
     $("#length-slider").slider({
         min: 21,
-        max: 60,
+        max: 46,
+        step: 5,
         slide: function (event, ui) {
-            var selectedLength = ui.value;//  $(this).slider("value");
+            var selectedLength = ui.value;//
             $("#length-value").text(selectedLength);
             custom_product.length = selectedLength;
             $("#length").text(selectedLength);
+        },
+        change: function(){
+            calculatePrice();
         }
     });
 
+
+/*    var length_map_narrow = [21,26,31,36,41,46];
+    var length_map_middle = [21,26,31,36,41,46,51,56,61];
+    var length_map_wide = [21,26,31,36,41,46,51];
+    var length_map = length_map_narrow;
+
+    $("#length-slider").slider({
+        min: 0,
+        max: length_map.length - 1,
+        slide: function (event, ui) {
+            if(custom_product.width<=24){
+                length_map = length_map_narrow;
+            } else if (custom_product.width>=32){
+                length_map = length_map_wide;
+            } else {
+                length_map = length_map_middle;
+            }
+            var selectedLength = length_map[ui.value];//  $(this).slider("value");
+            $("#length-value").text(selectedLength);
+            custom_product.length = selectedLength;
+            $("#length").text(selectedLength);
+        },
+        change: function(){
+            calculatePrice();
+        }
+    });*/
+    //height slider
     $("#height-slider").slider({
         min: 6,
         max: 20,
@@ -238,6 +374,9 @@ jQuery(document).ready(function ($) {
             $("#height-value").text(selectedHeight);
             custom_product.height = selectedHeight;
             $("#height").text(selectedHeight);
+        },
+        change: function(){
+            calculatePrice();
         }
     });
 
@@ -253,8 +392,10 @@ jQuery(document).ready(function ($) {
     $("#certifiedcheckbox").on('click', function () {
         if ($("#cb-certified").is(':checked')) {
             custom_product.certified = "NO";
+            calculatePrice();
         } else {
             custom_product.certified = "YES";
+            calculatePrice();
         }
     })
 
@@ -299,6 +440,7 @@ jQuery(document).ready(function ($) {
     $("div.widget fieldset#side-wall-style-fs > input[type='radio']").change(function () {
         var side_wall_number = $("input[name='side-wall-style']:checked").val();
         custom_product.side_wall_number = side_wall_number;
+        calculatePrice();
     });
 
     // 2. side wall orientation
@@ -318,6 +460,7 @@ jQuery(document).ready(function ($) {
     $("div.widget fieldset#end-wall-style-front-fs > input[type='radio']").change(function () {
         var end_wall_number = $("input[name='end-wall-style-front']:checked").val();
         custom_product.end_wall_number = end_wall_number;
+        calculatePrice();
     });
 
     // 5. end wall style back
@@ -369,8 +512,9 @@ jQuery(document).ready(function ($) {
                     </div>
             `);
             custom_product.doors.push(new door($("#door-position").val(), $("#door-size").val()));
+            calculatePrice();
             $("#number-door").text(custom_product.doors.length);
-            /*console.log("after push, the number of doors is : " + JSON.stringify(custom_product.doors));*/
+            console.log("after push, the number of doors is : " + JSON.stringify(custom_product.doors));
         }
     });
 
@@ -394,6 +538,7 @@ jQuery(document).ready(function ($) {
 
         $(this).parent('div').parent('div').remove();
         $("#number-door").text(custom_product.doors.length);
+        calculatePrice();
 
     });
 
@@ -405,9 +550,11 @@ jQuery(document).ready(function ($) {
         spin: function (event, ui) {
             var value = ui.value;//$( "#front-door-spinner" ).spinner( "value" );
             custom_product.walk_ins.front = value;
-            console.log("front : " + custom_product.walk_ins.front);
-            $("#number-walk-in").text(custom_product.walk_ins.back + custom_product.walk_ins.front
-                + custom_product.walk_ins.left + custom_product.walk_ins.right);
+            //console.log("front : " + custom_product.walk_ins.front);
+            custom_product.walk_in_door_num = custom_product.walk_ins.back + custom_product.walk_ins.front
+                + custom_product.walk_ins.left + custom_product.walk_ins.right;
+            $("#number-walk-in").text(custom_product.walk_in_door_num);
+            calculatePrice();
         }
     });
 
@@ -420,8 +567,10 @@ jQuery(document).ready(function ($) {
             var value = ui.value; // $( "#back-door-spinner" ).spinner( "value" );
             custom_product.walk_ins.back = value;
             //console.log("back : " + custom_product.walk_ins.back);
-            $("#number-walk-in").text(custom_product.walk_ins.back + custom_product.walk_ins.front
-                + custom_product.walk_ins.left + custom_product.walk_ins.right);
+            custom_product.walk_in_door_num = custom_product.walk_ins.back + custom_product.walk_ins.front
+                + custom_product.walk_ins.left + custom_product.walk_ins.right;
+            $("#number-walk-in").text(custom_product.walk_in_door_num);
+            calculatePrice();
         }
     });
 
@@ -434,8 +583,10 @@ jQuery(document).ready(function ($) {
             var value = ui.value; //$( "#left-door-spinner" ).spinner( "value" );
             custom_product.walk_ins.left = value;
             //console.log("left : " + custom_product.walk_ins.left);
-            $("#number-walk-in").text(custom_product.walk_ins.back + custom_product.walk_ins.front
-                + custom_product.walk_ins.left + custom_product.walk_ins.right);
+            custom_product.walk_in_door_num = custom_product.walk_ins.back + custom_product.walk_ins.front
+                + custom_product.walk_ins.left + custom_product.walk_ins.right;
+            $("#number-walk-in").text(custom_product.walk_in_door_num);
+            calculatePrice();
         }
     });
 
@@ -448,8 +599,10 @@ jQuery(document).ready(function ($) {
             var value = ui.value; //$( "#right-door-spinner" ).spinner( "value" );
             custom_product.walk_ins.right = value;
             //console.log("right : " + custom_product.walk_ins.right);
-            $("#number-walk-in").text(custom_product.walk_ins.back + custom_product.walk_ins.front
-                + custom_product.walk_ins.left + custom_product.walk_ins.right);
+            custom_product.walk_in_door_num = custom_product.walk_ins.back + custom_product.walk_ins.front
+                + custom_product.walk_ins.left + custom_product.walk_ins.right;
+            $("#number-walk-in").text(custom_product.walk_in_door_num);
+            calculatePrice();
         }
     });
 
@@ -464,8 +617,10 @@ jQuery(document).ready(function ($) {
             var value = ui.value; //$( "#front-window-spinner" ).spinner( "value" );
             custom_product.windows.front = value;
             //console.log("front : " + custom_product.windows.front);
-            $("#number-window").text(custom_product.windows.front + custom_product.windows.back +
-                custom_product.windows.left + custom_product.windows.right);
+            custom_product.window_num = custom_product.windows.front + custom_product.windows.back +
+                custom_product.windows.left + custom_product.windows.right;
+            $("#number-window").text(custom_product.window_num);
+            calculatePrice();
         }
     });
 
@@ -478,8 +633,10 @@ jQuery(document).ready(function ($) {
             var value = ui.value; //$( "#back-window-spinner" ).spinner( "value" );
             custom_product.windows.back = value;
             //console.log("back : " + custom_product.windows.back);
-            $("#number-window").text(custom_product.windows.front + custom_product.windows.back +
-                custom_product.windows.left + custom_product.windows.right);
+            custom_product.window_num = custom_product.windows.front + custom_product.windows.back +
+                custom_product.windows.left + custom_product.windows.right;
+            $("#number-window").text(custom_product.window_num);
+            calculatePrice();
         }
     });
 
@@ -492,8 +649,10 @@ jQuery(document).ready(function ($) {
             var value = ui.value; //$( "#left-window-spinner" ).spinner( "value" );
             custom_product.windows.left = value;
             //console.log("left : " + custom_product.windows.left);
-            $("#number-window").text(custom_product.windows.front + custom_product.windows.back +
-                custom_product.windows.left + custom_product.windows.right);
+            custom_product.window_num = custom_product.windows.front + custom_product.windows.back +
+                custom_product.windows.left + custom_product.windows.right;
+            $("#number-window").text(custom_product.window_num);
+            calculatePrice();
         }
     });
 
@@ -506,8 +665,10 @@ jQuery(document).ready(function ($) {
             var value = ui.value; //$( "#right-window-spinner" ).spinner( "value" );
             custom_product.windows.right = value;
             //console.log("right : " + custom_product.windows.right);
-            $("#number-window").text(custom_product.windows.front + custom_product.windows.back +
-                custom_product.windows.left + custom_product.windows.right);
+            custom_product.window_num = custom_product.windows.front + custom_product.windows.back +
+                custom_product.windows.left + custom_product.windows.right;
+            $("#number-window").text(custom_product.window_num);
+            calculatePrice();
         }
     });
 
@@ -545,7 +706,8 @@ jQuery(document).ready(function ($) {
     $("div.widget fieldset#gable-ends-fs > input[type='radio']").change(function () {
         var gable_ends = $("input[name='gable-ends']:checked").val();
         custom_product.gable_ends= gable_ends;
-        console.log("gable_ends : " +  gable_ends);
+        calculatePrice();
+        //console.log("gable_ends : " +  gable_ends);
     });
 
     //********************************************************//
@@ -557,10 +719,23 @@ jQuery(document).ready(function ($) {
     $("div.widget fieldset#insulation-fs > input[type='radio']").change(function () {
         var insulation = $("input[name='insulation']:checked").val();
         custom_product.insulation= insulation;
-        console.log("insulation : " +  insulation);
+       // console.log("insulation : " +  insulation);
     });
 
     //********************************************************//
+    //********************************************************//
+    $("input[name='panels-number']:radio").checkboxradio({
+        icon: false
+    });
+    $("fieldset#panels-number-fs").controlgroup();
+
+    $("div.widget fieldset#panels-number-fs > input[type='radio']").change(function () {
+        var panels_number = $("input[name='panels-number']:checked").val();
+        custom_product.panels_number= panels_number;
+        calculatePrice();
+        //console.log("panels_number : " +  panels_number);
+    });
+
     $("input[name='panels']:radio").checkboxradio({
         icon: false
     });
@@ -568,8 +743,9 @@ jQuery(document).ready(function ($) {
 
     $("div.widget fieldset#panels-fs  input[type='radio']").change(function () {
         var panels = $("input[name='panels']:checked").val();
-        custom_product.panels= panels;
-        console.log("panels : " +  panels);
+        custom_product.panels_size= panels.substring(0,2);
+        calculatePrice();
+        //console.log("panels : " +  panels);
     });
 
     // save the javascript object.

@@ -1,7 +1,6 @@
 <?php
 
-class ZipCounty
-{
+class ZipCounty{
 
     private $zip_county = array(
         27006 => "Davie",
@@ -1106,4 +1105,3 @@ class ZipCounty
 
 }
 
-?>

@@ -57,7 +57,19 @@
 
 <div class="sub-item">
     <div class="sub-item-name">PANELS</div>
+
     <div class="widget">
+        <fieldset id="panels-number-fs">
+            <label for="panels-number-none">NONE</label>
+            <input type="radio" name="panels-number" id="panels-number-none" value="NONE" checked>
+            <label for="panels-number-1">1</label>
+            <input type="radio" name="panels-number" id="panels-number-1" value="1">
+            <label for="panels-number-2">2</label>
+            <input type="radio" name="panels-number" id="panels-number-2" value="2">
+        </fieldset>
+    </div>
+
+    <div class="widget" style="border-top:none;padding-top:0px">
         <fieldset id="panels-fs">
             <div class="row collapse">
                 <div class="small-24 medium-12 large-12 columns">

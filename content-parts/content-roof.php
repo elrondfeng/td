@@ -10,12 +10,12 @@
 <div class="row pics stylename">
     <div class="small-16 medium-8 large-8 columns block">
         <img src="<?php echo get_stylesheet_directory_uri(); ?>/imgs/regular-short.png">
-        <p6>Regular Style</p6>
+        <p6 class="selected">Regular Style</p6>
     </div>
 
     <div class="small-16 medium-8 large-8 columns block">
         <img src="<?php echo get_stylesheet_directory_uri(); ?>/imgs/luxury-short.png">
-        <p6>Boxed -Eave Style</p6>
+        <p6>Boxed-Eave Style</p6>
     </div>
 
     <div class="small-16 medium-8 large-8 columns block">
