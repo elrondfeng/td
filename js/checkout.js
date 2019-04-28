@@ -24,7 +24,7 @@ jQuery(document).ready(function ($) {
 
     var carport_product = JSON.parse(sessionStorage.getItem("carport_product"));
 
-    console.log("object is " + JSON.stringify(carport_product));
+    //console.log("object is " + JSON.stringify(carport_product));
 
     jQuery("#input_4_11").val(carport_product.width);
     jQuery("#input_4_11").prop('readonly', true);
@@ -56,11 +56,19 @@ jQuery(document).ready(function ($) {
     jQuery("#input_4_17").val(carport_product.trim_color);
     jQuery("#input_4_17").prop('readonly', true);
 
-    jQuery("#input_4_23").val(carport_product.price.init_deposit);
-    jQuery("#input_4_23").prop('readonly', true);
+    /* price section */
+    jQuery("#input_4_22").val(carport_product.price.all_price);
+    jQuery("#input_4_22").prop('readonly', true);
 
-    jQuery("#input_4_20").val(carport_product.price.all_price);
+    jQuery("#input_4_21").val(carport_product.price.tax_amount.toFixed(2));
+    jQuery("#input_4_21").prop('readonly', true);
+
+    jQuery("#input_4_20").val(carport_product.price.total.toFixed(2));
     jQuery("#input_4_20").prop('readonly', true);
+
+    jQuery("#input_4_23").val(carport_product.price.init_deposit.toFixed(2));
+    jQuery("#input_4_23").prop('readonly', true);
+    /* price section */
 
     jQuery("#input_4_24").html(JSON.stringify(carport_product, undefined, 4));
     jQuery("#input_4_24").prop('readonly', true);

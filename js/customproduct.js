@@ -104,14 +104,12 @@ jQuery(document).ready(function ($) {
     function getDoorString(){
         var doors_string ="";
         for (let i = 0; i<custom_product.doors.length; i++){
-            console.log("single my door : " + custom_product.doors[i].size);
+            //console.log("single my door : " + custom_product.doors[i].size);
             doors_string = doors_string.concat(custom_product.doors[i].size);
             if( i !== custom_product.doors.length -1 ){
                 doors_string = doors_string.concat("|")
             }
         }
-
-        console.log("get door string: " + doors_string);
         return doors_string;
     }
 
@@ -182,7 +180,7 @@ jQuery(document).ready(function ($) {
                 'panel-size':custom_product.panels_size
             },
             success: function(response) {
-                console.log(JSON.stringify(response, null, 4));
+                //console.log(JSON.stringify(response, null, 4));
                 custom_product.price.all_price = response.price;
                 $('#total-price').html(response.price);
                 handelTax();
@@ -193,8 +191,15 @@ jQuery(document).ready(function ($) {
     function handelTax(){
         custom_product.price.tax_amount = (custom_product.tax*custom_product.price.all_price/100);
         custom_product.price.total = custom_product.price.all_price + custom_product.price.tax_amount;
+
+        if(custom_product.price.all_price<2000){
+            custom_product.price.init_deposit = custom_product.price.all_price*0.12;
+        } else {
+            custom_product.price.init_deposit = custom_product.price.all_price*0.16;
+        }
         $("#total-tax").html(custom_product.price.tax_amount.toFixed(2));
         $("#total-td-price").html(custom_product.price.total.toFixed(2));
+        $("#today-deposit").html(custom_product.price.init_deposit.toFixed(2));
     }
 
     function submitZipcode() {
@@ -514,7 +519,7 @@ jQuery(document).ready(function ($) {
             custom_product.doors.push(new door($("#door-position").val(), $("#door-size").val()));
             calculatePrice();
             $("#number-door").text(custom_product.doors.length);
-            console.log("after push, the number of doors is : " + JSON.stringify(custom_product.doors));
+            //console.log("after push, the number of doors is : " + JSON.stringify(custom_product.doors));
         }
     });
 

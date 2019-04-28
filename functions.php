@@ -148,7 +148,7 @@ function calculate_price_function(){
     // return result:
     $result = array();
 
-    $result['log'] = $pricer_result["log"];
+    $result['log'] = ""; // $pricer_result["log"];
     $result['price'] = $pricer_result["price"];
     $result['deposit'] = 10;
     $result['total'] = 1000000;
@@ -170,6 +170,8 @@ function write_log($log) {
         }
     }
 }
+
+
 
 
 

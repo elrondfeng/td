@@ -104,7 +104,7 @@
     </div>
     <div class="final-order-now">
         <a href="<?php echo site_url(); ?>/checkout">
-            <input type="button" style="font-size: 1.2em" class="order-now-button" value="ORDER NOW">
+            <input type="button" style="font-size: 1.2em" class="order-now-button" value="Submit Info">
         </a>
     </div>
 </div>

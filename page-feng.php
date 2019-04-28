@@ -115,7 +115,7 @@ get_header(); ?>
                         <div class="small-16 medium-8 large-8 columns order-parts">
                             <div class="side-order-now">
                                 <a href="<?php echo site_url(); ?>/checkout">
-                                    <input class="order-now-button" type="button" style="font-size: 1.2em" value="ORDER NOW">
+                                    <input class="order-now-button" type="button" style="font-size: 1.2em" value="Submit Info">
                                 </a>
                             </div>
                         </div>

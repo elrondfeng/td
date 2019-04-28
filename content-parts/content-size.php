@@ -37,8 +37,8 @@
     It is highly recommended to check with your county before not certifying the building.
     Meta buildings cannot be certified once installed without certification.
     Certification is optional, but it also provides you with 140 mph wind protection,
-    40 psf per foot on the roof, extra bracing, extra anchors, and a set of blueprints for
-    you and/or the county county.  Also choosing to get your building certified,
+    40 psf per square foot on the roof, extra bracing, extra anchors, and a set of blueprints for
+    you and/or the county.  Also choosing to get your building certified,
     you will be provided with a 20 year warranty.</h4>
 
 <div class="buttons-container">
